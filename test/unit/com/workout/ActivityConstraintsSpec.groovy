@@ -2,6 +2,7 @@ package com.workout
 
 import grails.test.mixin.TestFor
 import spock.lang.Specification
+import java.nio.CharBuffer
 
 @TestFor(Activity)
 class ActivityConstraintsSpec extends Specification {
@@ -192,6 +193,36 @@ class ActivityConstraintsSpec extends Specification {
         activity.start = new Date('10/22/2014 09:30:00')
         activity.end = new Date('10/22/2014 10:00:00')
         activity.duration = 5.4
+
+        then: 'validation should pass'
+        activity.validate()
+        !activity.hasErrors()
+    }
+
+    void "notes"() {
+        when: 'notes is null'
+        activity.notes = null
+
+        then: 'validation should pass'
+        activity.validate()
+        !activity.hasErrors()
+
+        when: 'notes is blank'
+        activity.notes = ''
+
+        then: 'validation should pass'
+        activity.validate()
+        !activity.hasErrors()
+
+        when: 'notes is more than 2000 characters'
+        activity.notes = "_${CharBuffer.allocate(1999).toString()}_"
+
+        then: 'validation should fail'
+        !activity.validate()
+        activity.errors['notes'] == 'maxSize'
+
+        when: 'notes is between 0 and 2000 character'
+        activity.notes = 'Good run today!'
 
         then: 'validation should pass'
         activity.validate()

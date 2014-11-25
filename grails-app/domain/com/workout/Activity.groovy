@@ -28,7 +28,7 @@ class Activity {
                 return ['duration.required']
             }
         }
-        notes nullable: true, maxSize: 2000
+        notes nullable: true, blank: true, maxSize: 2000
     }
 }
 
