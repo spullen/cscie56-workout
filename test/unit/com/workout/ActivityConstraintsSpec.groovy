@@ -95,26 +95,20 @@ class ActivityConstraintsSpec extends Specification {
         when: 'start is null'
         activity.start = null
 
-        then: 'validation should fail'
-        !activity.validate()
-        activity.errors['start'] == 'nullable'
+        then: 'validation should pass'
+        activity.validate()
+        !activity.hasErrors()
 
         when: 'start is not null'
-        activity.start = new Date()
+        activity.start = new Date('11/10/2014 11:20:00')
+        activity.end = new Date('11/10/2014 11:30:00')
 
         then: 'validation should pass'
         activity.validate()
         !activity.hasErrors()
     }
 
-    void "stop"() {
-        when: 'end is null'
-        activity.end = null
-
-        then: 'validation should fail'
-        !activity.validate()
-        activity.errors['end'] == 'nullable'
-
+    void "end"() {
         when: 'end is before the start date'
         activity.start = new Date('11/10/2014 11:30:00')
         activity.end = new Date('11/10/2014 11:20:00')
@@ -122,6 +116,22 @@ class ActivityConstraintsSpec extends Specification {
         then: 'validation should fail'
         !activity.validate()
         activity.errors['end'] != null
+
+        when: 'start is not null and end is null'
+        activity.start = new Date('11/10/2014 11:20:00')
+        activity.end = null
+
+        then: 'validation should fail'
+        !activity.validate()
+        activity.errors['end'] == 'end.required'
+
+        when: 'start and end are null'
+        activity.start = null
+        activity.end = null
+
+        then: 'validation should pass'
+        activity.validate()
+        !activity.hasErrors()
 
         when: 'end is after the start'
         activity.start = new Date('11/10/2014 11:20:00')
@@ -133,14 +143,9 @@ class ActivityConstraintsSpec extends Specification {
     }
 
     void "duration"() {
-        when: 'duration is null'
-        activity.duration = null
-
-        then: 'validation should fail'
-        !activity.validate()
-        activity.errors['duration'] == 'nullable'
-
         when: 'duration is less than 0.01'
+        activity.start = new Date('10/22/2014 09:30:00')
+        activity.end = new Date('10/22/2014 10:00:00')
         activity.duration = 0.001
 
         then: 'validation should fail'
@@ -148,20 +153,44 @@ class ActivityConstraintsSpec extends Specification {
         activity.errors['duration'] == 'min'
 
         when: 'duration is less than 0.01'
+        activity.start = new Date('10/22/2014 09:30:00')
+        activity.end = new Date('10/22/2014 10:00:00')
         activity.duration = -1.0
 
         then: 'validation should fail'
         !activity.validate()
         activity.errors['duration'] == 'min'
 
-        when: 'when duration is valid'
+        when: 'start and end are not null and duration is null'
+        activity.start = new Date('10/22/2014 09:30:00')
+        activity.end = new Date('10/22/2014 10:00:00')
+        activity.duration = null
+
+        then: 'validation should fail'
+        !activity.validate()
+        activity.errors['duration'] == 'duration.required'
+
+        when: 'start, end, and duration are null'
+        activity.start = null
+        activity.end = null
+        activity.duration = null
+
+        then: 'validation should pass'
+        activity.validate()
+        !activity.hasErrors()
+
+        when: 'duration is valid'
+        activity.start = new Date('10/22/2014 09:30:00')
+        activity.end = new Date('10/22/2014 10:00:00')
         activity.duration = 0.01
 
         then: 'validation should pass'
         activity.validate()
         !activity.hasErrors()
 
-        when: 'when duration is valid'
+        when: 'duration is valid'
+        activity.start = new Date('10/22/2014 09:30:00')
+        activity.end = new Date('10/22/2014 10:00:00')
         activity.duration = 5.4
 
         then: 'validation should pass'

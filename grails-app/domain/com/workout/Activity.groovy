@@ -13,13 +13,21 @@ class Activity {
         activityType()
         amount min: 0.01
         metric()
-        start()
-        end validator: { endDate, activity ->
+        start nullable: true
+        end nullable: true, validator: { endDate, activity ->
+            if(activity.start && !endDate) {
+                return ['end.required']
+            }
+
             if(endDate && activity.start && endDate < activity.start) {
-                return ['endDateTimeMustComeAfterStartDateTime']
+                return ['end.mustComeAfterStart']
             }
         }
-        duration min: 0.01
+        duration nullable: true, min: 0.01, validator: { duration, activity ->
+            if(activity.start && activity.end && !duration) {
+                return ['duration.required']
+            }
+        }
         notes nullable: true, maxSize: 2000
     }
 }
