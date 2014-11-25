@@ -15,6 +15,8 @@ class User {
 	String lastName
 	String email
 
+	static hasMany = [activities: Activity]
+
 	static transients = ['springSecurityService']
 
 	static constraints = {

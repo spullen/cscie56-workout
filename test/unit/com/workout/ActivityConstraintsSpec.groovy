@@ -11,6 +11,7 @@ class ActivityConstraintsSpec extends Specification {
 
     def setup() {
         activity = new Activity(
+                user: [id: 1] as User,
                 activityType: ActivityType.RUNNING,
                 amount: 5.5,
                 metric: MetricType.MILES,
@@ -21,6 +22,22 @@ class ActivityConstraintsSpec extends Specification {
         )
 
         mockForConstraintsTests(Activity)
+    }
+
+    void "user"() {
+        when: 'user is null'
+        activity.user = null
+
+        then: 'validation should fail'
+        !activity.validate()
+        activity.errors['user'] == 'nullable'
+
+        when: 'user is not null'
+        activity.user = [id: 1] as User
+
+        then: 'validation should pass'
+        activity.validate()
+        !activity.hasErrors()
     }
 
     void "activityType"() {

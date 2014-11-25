@@ -9,7 +9,10 @@ class Activity {
     BigDecimal duration
     String notes
 
+    static belongsTo = [user: User]
+
     static constraints = {
+        user()
         activityType()
         amount min: 0.01
         metric()
