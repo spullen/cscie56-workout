@@ -14,7 +14,7 @@ class ActivityConstraintsSpec extends Specification {
                 user: [id: 1] as User,
                 activityType: ActivityType.RUNNING,
                 amount: 5.5,
-                metric: MetricType.MILES,
+                metric: MetricType.DISTANCE,
                 start: new Date("12/10/2014 12:30:00"),
                 end: new Date("12/10/2014 12:45:00"),
                 duration: 15,

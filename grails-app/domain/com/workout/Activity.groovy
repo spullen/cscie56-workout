@@ -3,7 +3,7 @@ package com.workout
 class Activity {
     ActivityType activityType = ActivityType.RUNNING
     BigDecimal amount
-    MetricType metric = MetricType.MILES
+    MetricType metric = MetricType.DISTANCE
     Date start
     Date end
     BigDecimal duration
@@ -50,7 +50,7 @@ public enum ActivityType {
 }
 
 public enum MetricType {
-    MILES('Miles'),
+    DISTANCE('Distance'),
     REPS('Reps'),
     COUNT('Count')
 
