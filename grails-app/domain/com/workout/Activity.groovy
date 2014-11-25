@@ -10,9 +10,9 @@ class Activity {
     String notes
 
     static constraints = {
-        activityType blank: false
+        activityType blank: false, inList: ActivityType.values() as List
         amount blank: false, min: 0.1
-        metric blank: false
+        metric blank: false, inList: MetricType.values() as List
         start blank: false
         end blank: false
         duration nullable: true
