@@ -30,6 +30,16 @@
 		<s2ui:textFieldRow name='lastName' bean="${command}" value="${command.lastName}"
 						   size='40' labelCode='user.lastName.label' labelCodeDefault='Last Name'/>
 
+		<tr class="prop">
+			<td valign="top" class="name">
+				<label for="preferredDistanceUnits"><g:message code="user.preferredDistanceUnits.label" default="Preferred Distance Units" /></label>
+			</td>
+			<td valign="top" class="value ${hasErrors(bean: command, field: 'preferredDistanceUnits', 'errors')}">
+				<g:select name="preferredDistanceUnits" from="${command.constraints.preferredDistanceUnits.inList}" value="${command?.preferredDistanceUnits}" />
+				<span class="s2ui_error">${fieldError(bean: command, field: 'preferredDistanceUnits')}</span>
+			</td>
+		</tr>
+
 		<s2ui:textFieldRow name='username' labelCode='user.username.label' bean="${command}"
                          size='40' labelCodeDefault='Username' value="${command.username}"/>
 

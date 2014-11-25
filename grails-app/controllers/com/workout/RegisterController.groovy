@@ -1,9 +1,11 @@
 package com.workout
 
 import grails.plugin.springsecurity.SpringSecurityUtils
+import grails.plugin.springsecurity.annotation.Secured
 import grails.plugin.springsecurity.authentication.dao.NullSaltSource
 import grails.plugin.springsecurity.ui.RegistrationCode
 
+@Secured(['permitAll'])
 class RegisterController extends grails.plugin.springsecurity.ui.RegisterController {
     def index() {
         def copy = [:] + (flash.chainedParams ?: [:])
@@ -50,7 +52,7 @@ class RegisterCommand {
     String email
     String firstName
     String lastName
-    String phoneNumber
+    String preferredDistanceUnits = 'mi'
     String password
     String password2
 
@@ -79,5 +81,6 @@ class RegisterCommand {
         password2 validator: RegisterController.password2Validator
         firstName blank: false
         lastName blank: false
+        preferredDistanceUnits blank: false, inList: ['mi', 'km']
     }
 }

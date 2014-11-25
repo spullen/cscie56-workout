@@ -15,7 +15,8 @@ class UserConstraintsSpec extends Specification {
                 password: 'password',
                 firstName: 'New',
                 lastName: 'User',
-                email: 'newUser@test.com'
+                email: 'newUser@test.com',
+                preferredDistanceUnits: 'mi'
         )
 
         existingUser = new User(
@@ -23,7 +24,8 @@ class UserConstraintsSpec extends Specification {
                 password: 'password',
                 firstName: 'New',
                 lastName: 'User',
-                email: 'existing@test.com'
+                email: 'existing@test.com',
+                preferredDistanceUnits: 'km'
         )
 
         mockForConstraintsTests(User, [existingUser])

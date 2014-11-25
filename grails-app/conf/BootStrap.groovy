@@ -8,7 +8,8 @@ class BootStrap {
                 password: 'password',
                 firstName: 'Test',
                 lastName: 'User',
-                email: 'testUser@test.com'
+                email: 'testUser@test.com',
+                preferredDistanceUnits: 'mi'
         )
         user.save(flush: true)
     }

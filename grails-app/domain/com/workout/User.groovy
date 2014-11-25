@@ -14,6 +14,7 @@ class User {
 	String firstName
 	String lastName
 	String email
+	String preferredDistanceUnits = 'mi'
 
 	static hasMany = [activities: Activity]
 
@@ -25,6 +26,7 @@ class User {
 		firstName blank: false
 		lastName blank: false
 		email blank: false, email: true, unique: true
+		preferredDistanceUnits blank: false, inList: ['mi', 'km']
 	}
 
 	static mapping = {
