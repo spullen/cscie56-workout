@@ -46,7 +46,14 @@ class ActivityConstraintsSpec extends Specification {
         !activity.validate()
         activity.errors['amount'] == 'nullable'
 
-        when: 'amount is less than 0.0'
+        when: 'amount is less than 0.01'
+        activity.amount = 0.001
+
+        then: 'validation should fail'
+        !activity.validate()
+        activity.errors['amount'] == 'min'
+
+        when: 'amount is less than 0.01'
         activity.amount = -1.0
 
         then: 'validation should fail'
@@ -119,6 +126,43 @@ class ActivityConstraintsSpec extends Specification {
         when: 'end is after the start'
         activity.start = new Date('11/10/2014 11:20:00')
         activity.end = new Date('11/10/2014 11:30:00')
+
+        then: 'validation should pass'
+        activity.validate()
+        !activity.hasErrors()
+    }
+
+    void "duration"() {
+        when: 'duration is null'
+        activity.duration = null
+
+        then: 'validation should fail'
+        !activity.validate()
+        activity.errors['duration'] == 'nullable'
+
+        when: 'duration is less than 0.01'
+        activity.duration = 0.001
+
+        then: 'validation should fail'
+        !activity.validate()
+        activity.errors['duration'] == 'min'
+
+        when: 'duration is less than 0.01'
+        activity.duration = -1.0
+
+        then: 'validation should fail'
+        !activity.validate()
+        activity.errors['duration'] == 'min'
+
+        when: 'when duration is valid'
+        activity.duration = 0.01
+
+        then: 'validation should pass'
+        activity.validate()
+        !activity.hasErrors()
+
+        when: 'when duration is valid'
+        activity.duration = 5.4
 
         then: 'validation should pass'
         activity.validate()

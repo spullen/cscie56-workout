@@ -11,7 +11,7 @@ class Activity {
 
     static constraints = {
         activityType()
-        amount min: 0.0
+        amount min: 0.01
         metric()
         start()
         end validator: { endDate, activity ->
@@ -19,7 +19,7 @@ class Activity {
                 return ['endDateTimeMustComeAfterStartDateTime']
             }
         }
-        duration nullable: true
+        duration min: 0.01
         notes nullable: true, maxSize: 2000
     }
 }
