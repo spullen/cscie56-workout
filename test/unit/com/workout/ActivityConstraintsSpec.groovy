@@ -30,13 +30,6 @@ class ActivityConstraintsSpec extends Specification {
         !activity.validate()
         activity.errors['activityType'] == 'nullable'
 
-        when: 'activity type is not a valid activity type'
-        activity.activityType = 'Garbage'
-
-        then: 'it should fail validation'
-        !activity.validate()
-        activity.errors['activityType'] == 'inList'
-
         when: 'activity type is a valid activity type'
         activity.activityType = ActivityType.RUNNING
 
@@ -83,15 +76,49 @@ class ActivityConstraintsSpec extends Specification {
         !activity.validate()
         activity.errors['metric'] == 'nullable'
 
-        when: 'metric is not a valid type'
-        activity.metric = 'Garbage'
+        when: 'metric is a valid type'
+        activity.metric = MetricType.REPS
+
+        then: 'validation should pass'
+        activity.validate()
+        !activity.hasErrors()
+    }
+
+    void "start"() {
+        when: 'start is null'
+        activity.start = null
 
         then: 'validation should fail'
         !activity.validate()
-        activity.errors['metric'] == 'inList'
+        activity.errors['start'] == 'nullable'
 
-        when: 'metric is a valid type'
-        activity.metric = MetricType.REPS
+        when: 'start is not null'
+        activity.start = new Date()
+
+        then: 'validation should pass'
+        activity.validate()
+        !activity.hasErrors()
+    }
+
+    void "stop"() {
+        when: 'end is null'
+        activity.end = null
+
+        then: 'validation should fail'
+        !activity.validate()
+        activity.errors['end'] == 'nullable'
+
+        when: 'end is before the start date'
+        activity.start = new Date('11/10/2014 11:30:00')
+        activity.end = new Date('11/10/2014 11:20:00')
+
+        then: 'validation should fail'
+        !activity.validate()
+        activity.errors['end'] != null
+
+        when: 'end is after the start'
+        activity.start = new Date('11/10/2014 11:20:00')
+        activity.end = new Date('11/10/2014 11:30:00')
 
         then: 'validation should pass'
         activity.validate()

@@ -10,11 +10,15 @@ class Activity {
     String notes
 
     static constraints = {
-        activityType inList: ActivityType.values() as List
+        activityType()
         amount min: 0.0
-        metric inList: MetricType.values() as List
+        metric()
         start()
-        end()
+        end validator: { endDate, activity ->
+            if(endDate && activity.start && endDate < activity.start) {
+                return ['endDateTimeMustComeAfterStartDateTime']
+            }
+        }
         duration nullable: true
         notes nullable: true, maxSize: 2000
     }
