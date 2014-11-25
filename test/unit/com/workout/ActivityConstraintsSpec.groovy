@@ -44,4 +44,57 @@ class ActivityConstraintsSpec extends Specification {
         activity.validate()
         !activity.hasErrors()
     }
+
+    void "amount"() {
+        when: 'amount is null'
+        activity.amount = null
+
+        then: 'validation should fail'
+        !activity.validate()
+        activity.errors['amount'] == 'nullable'
+
+        when: 'amount is less than 0.0'
+        activity.amount = -1.0
+
+        then: 'validation should fail'
+        !activity.validate()
+        activity.errors['amount'] == 'min'
+
+        when: 'when amount is valid'
+        activity.amount = 0.01
+
+        then: 'validation should pass'
+        activity.validate()
+        !activity.hasErrors()
+
+        when: 'when amount is valid'
+        activity.amount = 5.4
+
+        then: 'validation should pass'
+        activity.validate()
+        !activity.hasErrors()
+    }
+
+    void "metric"() {
+        when: 'metric is null'
+        activity.metric = null
+
+        then: 'validation should fail'
+        !activity.validate()
+        activity.errors['metric'] == 'nullable'
+
+        when: 'metric is not a valid type'
+        activity.metric = 'Garbage'
+
+        then: 'validation should fail'
+        !activity.validate()
+        activity.errors['metric'] == 'inList'
+
+        when: 'metric is a valid type'
+        activity.metric = MetricType.REPS
+
+        then: 'validation should pass'
+        activity.validate()
+        !activity.hasErrors()
+    }
 }
