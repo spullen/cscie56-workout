@@ -30,19 +30,18 @@ class ActivityController {
         respond new Activity(params)
     }
 
-    @Transactional
     def save(Activity activityInstance) {
         if (activityInstance == null) {
             notFound()
             return
         }
 
+        activityService.create(activityInstance)
+
         if (activityInstance.hasErrors()) {
             respond activityInstance.errors, view:'create'
             return
         }
-
-        activityInstance.save flush:true
 
         request.withFormat {
             form multipartForm {

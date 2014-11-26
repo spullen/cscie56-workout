@@ -1,11 +1,13 @@
 <%@ page import="com.workout.Activity" %>
+<%@ page import="com.workout.ActivityType" %>
+<%@ page import="com.workout.MetricType" %>
 
 <div class="fieldcontain ${hasErrors(bean: activityInstance, field: 'activityType', 'error')} required">
 	<label for="activityType">
 		<g:message code="activity.activityType.label" default="Activity Type" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select name="activityType" from="${com.workout.ActivityType?.values()}" keys="${com.workout.ActivityType.values()*.name()}" required="" value="${activityInstance?.activityType?.name()}" />
+	<g:select name="activityType" from="${ActivityType.values()}" keys="${ActivityType.values()*.name()}" required="" value="${activityInstance?.activityType?.name()}" />
 
 </div>
 
@@ -23,7 +25,7 @@
 		<g:message code="activity.metric.label" default="Metric" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select name="metric" from="${com.workout.MetricType?.values()}" keys="${com.workout.MetricType.values()*.name()}" required="" value="${activityInstance?.metric?.name()}" />
+	<g:select name="metric" from="${MetricType?.values()}" keys="${MetricType.values()*.name()}" required="" value="${activityInstance?.metric?.name()}" />
 
 </div>
 
@@ -32,7 +34,7 @@
 		<g:message code="activity.start.label" default="Start" />
 		
 	</label>
-	<g:datePicker name="start" precision="day"  value="${activityInstance?.start}" default="none" noSelection="['': '']" />
+	<g:datePicker name="start" precision="minute"  value="${activityInstance?.start}" default="${new Date()}" relativeYears="[-1..0]" noSelection="['': '']" />
 
 </div>
 
@@ -41,16 +43,7 @@
 		<g:message code="activity.end.label" default="End" />
 		
 	</label>
-	<g:datePicker name="end" precision="day"  value="${activityInstance?.end}" default="none" noSelection="['': '']" />
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: activityInstance, field: 'duration', 'error')} ">
-	<label for="duration">
-		<g:message code="activity.duration.label" default="Duration" />
-		
-	</label>
-	<g:field name="duration" value="${fieldValue(bean: activityInstance, field: 'duration')}"/>
+	<g:datePicker name="end" precision="minute"  value="${activityInstance?.end}" default="${new Date()}" relativeYears="[-1..0]" noSelection="['': '']" />
 
 </div>
 

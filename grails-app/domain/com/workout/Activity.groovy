@@ -6,15 +6,15 @@ class Activity {
     MetricType metric = MetricType.DISTANCE
     Date start
     Date end
-    BigDecimal duration
     String notes
+    Date dateCreated
 
     static belongsTo = [user: User]
 
     static constraints = {
         user()
         activityType()
-        amount min: 0.01
+        amount blank: false, min: 0.01
         metric()
         start nullable: true
         end nullable: true, validator: { endDate, activity ->
@@ -26,26 +26,27 @@ class Activity {
                 return ['end.mustComeAfterStart']
             }
         }
-        duration nullable: true, min: 0.01, validator: { duration, activity ->
-            if(activity.start && activity.end && !duration) {
-                return ['duration.required']
-            }
-        }
         notes nullable: true, blank: true, maxSize: 2000
     }
 }
 
 public enum ActivityType {
-    RUNNING('Running'),
-    CYCLING('Cycling'),
-    WALKING('Walking'),
-    PUSH_UPS('Push Ups'),
-    SIT_UPS('Sit Ups')
+    RUNNING("Running"),
+    CYCLING("Cycling"),
+    WALKING("Walking"),
+    PUSH_UPS("Push Ups"),
+    SIT_UPS("Sit Ups"),
+    PULL_UPS("Pull Ups"),
+    WEIGHT_LIFTING("Weight Lifting")
 
     String id
 
     ActivityType(String id) {
         this.id = id
+    }
+
+    String toString() {
+        id
     }
 }
 
@@ -58,5 +59,9 @@ public enum MetricType {
 
     MetricType(String id) {
         this.id = id
+    }
+
+    String toString() {
+        id
     }
 }
