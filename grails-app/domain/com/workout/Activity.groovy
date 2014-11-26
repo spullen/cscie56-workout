@@ -1,5 +1,9 @@
 package com.workout
 
+import groovy.time.TimeCategory
+
+import java.sql.Time
+
 class Activity {
     ActivityType activityType = ActivityType.RUNNING
     BigDecimal amount
@@ -27,6 +31,12 @@ class Activity {
             }
         }
         notes nullable: true, blank: true, maxSize: 2000
+    }
+
+    String getDuration() {
+        if(start && end) {
+            TimeCategory.minus(end, start)
+        }
     }
 }
 

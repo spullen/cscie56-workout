@@ -17,7 +17,6 @@ class ActivityConstraintsSpec extends Specification {
                 metric: MetricType.DISTANCE,
                 start: new Date("12/10/2014 12:30:00"),
                 end: new Date("12/10/2014 12:45:00"),
-                duration: 15,
                 notes: "Felt good, could go further next time."
         )
 
