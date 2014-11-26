@@ -13,6 +13,7 @@ class ActivityService {
         activity.save()
 
         // TODO: goal integration
+        // This could be many-to-many so need to find all goals and update
         // Find active goal for user, activity type, and metric
         // Update current amount value
         // Decide if goal has been completed
@@ -22,6 +23,7 @@ class ActivityService {
         activity.save()
 
         // TODO: goal integration
+        // This could be many-to-many so need to find all goals and update
         // Find active goal for user, activity type, and metric
         // Re-calculate current amount and update
         // Decide if goal has been completed (this could be mean going from completed to incomplete if adjustments go under target)

@@ -73,14 +73,27 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ActivityService.groovy" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ActivityService.groovy" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grails-app/services/com/workout/ActivityService.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.48262548" vertical-offset="0" max-vertical-offset="777">
-              <caret line="25" column="49" selection-start-line="25" selection-start-column="49" selection-end-line="25" selection-end-column="49" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="555">
+              <caret line="25" column="74" selection-start-line="25" selection-start-column="74" selection-end-line="25" selection-end-column="74" />
               <folding>
                 <element signature="e#21#78#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Goal.groovy" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/grails-app/domain/com/workout/Goal.groovy">
+          <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.22790055" vertical-offset="0" max-vertical-offset="724">
+              <caret line="11" column="35" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -119,6 +132,7 @@
         <option value="$PROJECT_DIR$/test/unit/com/workout/ActivityConstraintsSpec.groovy" />
         <option value="$PROJECT_DIR$/test/unit/com/workout/ActivitySpec.groovy" />
         <option value="$PROJECT_DIR$/grails-app/services/com/workout/ActivityService.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/domain/com/workout/Goal.groovy" />
       </list>
     </option>
   </component>
@@ -589,12 +603,12 @@
       <option name="number" value="Default" />
       <updated>1416876607141</updated>
       <workItem from="1416876611919" duration="6928000" />
-      <workItem from="1416886532534" duration="6600000" />
+      <workItem from="1416886532534" duration="6855000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13528000" />
+    <option name="totallyTimeSpent" value="13783000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="874" extended-state="6" />
@@ -855,11 +869,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/services/com/workout/ActivityService.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48262548" vertical-offset="0" max-vertical-offset="777">
-          <caret line="25" column="49" selection-start-line="25" selection-start-column="49" selection-end-line="25" selection-end-column="49" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="555">
+          <caret line="25" column="74" selection-start-line="25" selection-start-column="74" selection-end-line="25" selection-end-column="74" />
           <folding>
             <element signature="e#21#78#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/domain/com/workout/Goal.groovy">
+      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.22790055" vertical-offset="0" max-vertical-offset="724">
+          <caret line="11" column="35" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>
