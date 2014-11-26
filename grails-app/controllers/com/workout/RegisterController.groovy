@@ -27,7 +27,7 @@ class RegisterController extends grails.plugin.springsecurity.ui.RegisterControl
                 username: command.username,
                 firstName: command.firstName,
                 lastName: command.lastName,
-                phoneNumber: command.phoneNumber,
+                preferredDistanceUnits: command.preferredDistanceUnits,
                 accountLocked: false,
                 enabled: true
         )

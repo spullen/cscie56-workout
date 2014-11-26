@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e5853dfe-27b2-4d32-87b4-1446752fd1fe" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/conf/BootStrap.groovy" afterPath="$PROJECT_DIR$/grails-app/conf/BootStrap.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/conf/Config.groovy" afterPath="$PROJECT_DIR$/grails-app/conf/Config.groovy" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/controllers/com/workout/RegisterController.groovy" afterPath="$PROJECT_DIR$/grails-app/controllers/com/workout/RegisterController.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/domain/com/workout/User.groovy" afterPath="$PROJECT_DIR$/grails-app/domain/com/workout/User.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/unit/com/workout/UserConstraintsSpec.groovy" afterPath="$PROJECT_DIR$/test/unit/com/workout/UserConstraintsSpec.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/register/index.gsp" afterPath="$PROJECT_DIR$/grails-app/views/register/index.gsp" />
     </list>
     <ignored path="WorkoutTracker.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -69,11 +64,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RegisterController.groovy" pinned="false" current-in-tab="false">
+      <file leaf-file-name="RegisterController.groovy" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/workout/RegisterController.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.9130435" vertical-offset="15" max-vertical-offset="1380">
-              <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
+            <state vertical-scroll-proportion="0.5570292" vertical-offset="15" max-vertical-offset="1380">
+              <caret line="29" column="70" selection-start-line="29" selection-start-column="70" selection-end-line="29" selection-end-column="70" />
               <folding>
                 <element signature="e#21#76#0" expanded="true" />
               </folding>
@@ -81,10 +76,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.gsp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.gsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grails-app/views/register/index.gsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.49315068" vertical-offset="210" max-vertical-offset="1185">
+            <state vertical-scroll-proportion="-7.6595745" vertical-offset="210" max-vertical-offset="1185">
               <caret line="38" column="109" selection-start-line="38" selection-start-column="109" selection-end-line="38" selection-end-column="109" />
               <folding />
             </state>
@@ -139,8 +134,8 @@
         <option value="$PROJECT_DIR$/test/unit/com/workout/UserConstraintsSpec.groovy" />
         <option value="$PROJECT_DIR$/grails-app/domain/com/workout/User.groovy" />
         <option value="$PROJECT_DIR$/grails-app/conf/Config.groovy" />
-        <option value="$PROJECT_DIR$/grails-app/controllers/com/workout/RegisterController.groovy" />
         <option value="$PROJECT_DIR$/grails-app/views/register/index.gsp" />
+        <option value="$PROJECT_DIR$/grails-app/controllers/com/workout/RegisterController.groovy" />
       </list>
     </option>
   </component>
@@ -545,12 +540,12 @@
       <option name="number" value="Default" />
       <updated>1416876607141</updated>
       <workItem from="1416876611919" duration="6928000" />
-      <workItem from="1416886532534" duration="883000" />
+      <workItem from="1416886532534" duration="979000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7811000" />
+    <option name="totallyTimeSpent" value="7907000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="874" extended-state="6" />
@@ -743,21 +738,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/workout/RegisterController.groovy">
+    <entry file="file://$PROJECT_DIR$/grails-app/views/register/index.gsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.9130435" vertical-offset="15" max-vertical-offset="1380">
-          <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
-          <folding>
-            <element signature="e#21#76#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="-7.6595745" vertical-offset="210" max-vertical-offset="1185">
+          <caret line="38" column="109" selection-start-line="38" selection-start-column="109" selection-end-line="38" selection-end-column="109" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/register/index.gsp">
+    <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/workout/RegisterController.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49315068" vertical-offset="210" max-vertical-offset="1185">
-          <caret line="38" column="109" selection-start-line="38" selection-start-column="109" selection-end-line="38" selection-end-column="109" />
-          <folding />
+        <state vertical-scroll-proportion="0.5570292" vertical-offset="15" max-vertical-offset="1380">
+          <caret line="29" column="70" selection-start-line="29" selection-start-column="70" selection-end-line="29" selection-end-column="70" />
+          <folding>
+            <element signature="e#21#76#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
