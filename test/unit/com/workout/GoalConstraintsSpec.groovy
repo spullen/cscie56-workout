@@ -62,4 +62,20 @@ class GoalConstraintsSpec extends Specification {
         goal.validate()
         !goal.hasErrors()
     }
+
+    void "activityType"() {
+        when: 'activity type is null'
+        goal.activityType = null
+
+        then: 'it should fail validation'
+        !goal.validate()
+        goal.errors['activityType'] == 'nullable'
+
+        when: 'activity type is a valid activity type'
+        goal.activityType = ActivityType.RUNNING
+
+        then: 'validation should pass'
+        goal.validate()
+        !goal.hasErrors()
+    }
 }
