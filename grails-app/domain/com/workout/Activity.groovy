@@ -2,8 +2,8 @@ package com.workout
 
 class Activity {
     ActivityType activityType = ActivityType.RUNNING
-    BigDecimal amount
     MetricType metric = MetricType.DISTANCE
+    BigDecimal amount
     Date start
     BigDecimal duration
     String notes
@@ -14,8 +14,8 @@ class Activity {
     static constraints = {
         user()
         activityType()
-        amount blank: false, min: 0.01
         metric()
+        amount blank: false, min: 0.01
         start()
         duration min: 0.01
         notes nullable: true, blank: true, maxSize: 2000
