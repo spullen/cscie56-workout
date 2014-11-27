@@ -23,37 +23,21 @@
 			<table>
 			<thead>
 					<tr>
-					
-						<th><g:message code="activity.user.label" default="User" /></th>
-					
 						<g:sortableColumn property="activityType" title="${message(code: 'activity.activityType.label', default: 'Activity Type')}" />
-					
-						<g:sortableColumn property="amount" title="${message(code: 'activity.amount.label', default: 'Amount')}" />
-					
 						<g:sortableColumn property="metric" title="${message(code: 'activity.metric.label', default: 'Metric')}" />
-					
+						<g:sortableColumn property="amount" title="${message(code: 'activity.amount.label', default: 'Amount')}" />
 						<g:sortableColumn property="start" title="${message(code: 'activity.start.label', default: 'Start')}" />
-					
-						<g:sortableColumn property="end" title="${message(code: 'activity.end.label', default: 'End')}" />
-					
+						<g:sortableColumn property="duration" title="${message(code: 'activity.duration.label', default: 'Duration')}" />
 					</tr>
 				</thead>
 				<tbody>
 				<g:each in="${activityInstanceList}" status="i" var="activityInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-					
-						<td><g:link action="show" id="${activityInstance.id}">${fieldValue(bean: activityInstance, field: "user")}</g:link></td>
-					
-						<td>${fieldValue(bean: activityInstance, field: "activityType")}</td>
-					
-						<td>${fieldValue(bean: activityInstance, field: "amount")}</td>
-					
+						<td><g:link action="show" id="${activityInstance.id}">${fieldValue(bean: activityInstance, field: "activityType")}</g:link></td>
 						<td>${fieldValue(bean: activityInstance, field: "metric")}</td>
-					
+						<td>${fieldValue(bean: activityInstance, field: "amount")}</td>
 						<td><g:formatDate date="${activityInstance.start}" /></td>
-					
-						<td><g:formatDate date="${activityInstance.end}" /></td>
-					
+						<td>${fieldValue(bean: activityInstance, field: "duration")}</td>
 					</tr>
 				</g:each>
 				</tbody>

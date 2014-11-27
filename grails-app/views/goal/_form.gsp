@@ -8,7 +8,6 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<g:textField name="title" maxlength="150" required="" value="${goalInstance?.title}"/>
-
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: goalInstance, field: 'activityType', 'error')} required">
@@ -17,7 +16,6 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<g:select name="activityType" from="${ActivityType?.values()}" keys="${ActivityType.values()*.name()}" required="" value="${goalInstance?.activityType?.name()}" />
-
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: goalInstance, field: 'metric', 'error')} required">
@@ -26,7 +24,6 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<g:select name="metric" from="${MetricType?.values()}" keys="${MetricType.values()*.name()}" required="" value="${goalInstance?.metric?.name()}" />
-
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: goalInstance, field: 'targetAmount', 'error')} required">
@@ -35,7 +32,6 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<g:field name="targetAmount" value="${fieldValue(bean: goalInstance, field: 'targetAmount')}" required=""/>
-
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: goalInstance, field: 'targetDate', 'error')} required">
@@ -43,7 +39,6 @@
 		<g:message code="goal.targetDate.label" default="Target Date" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:datePicker name="targetDate" precision="day"  value="${goalInstance?.targetDate}"  />
-
+	<g:datePicker name="targetDate" precision="day" value="${goalInstance?.targetDate}" relativeYears="[0..0]"  />
 </div>
 

@@ -23,37 +23,23 @@
 			<table>
 			<thead>
 					<tr>
-					
-						<th><g:message code="goal.user.label" default="User" /></th>
-					
 						<g:sortableColumn property="title" title="${message(code: 'goal.title.label', default: 'Title')}" />
-					
 						<g:sortableColumn property="activityType" title="${message(code: 'goal.activityType.label', default: 'Activity Type')}" />
-					
 						<g:sortableColumn property="metric" title="${message(code: 'goal.metric.label', default: 'Metric')}" />
-					
 						<g:sortableColumn property="targetAmount" title="${message(code: 'goal.targetAmount.label', default: 'Target Amount')}" />
-					
 						<g:sortableColumn property="targetDate" title="${message(code: 'goal.targetDate.label', default: 'Target Date')}" />
-					
+						<g:sortableColumn property="targetAmount" title="${message(code: 'goal.currentAmount.label', default: 'Current Amount')}" />
 					</tr>
 				</thead>
 				<tbody>
 				<g:each in="${goalInstanceList}" status="i" var="goalInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-					
-						<td><g:link action="show" id="${goalInstance.id}">${fieldValue(bean: goalInstance, field: "user")}</g:link></td>
-					
-						<td>${fieldValue(bean: goalInstance, field: "title")}</td>
-					
+						<td><g:link action="show" id="${goalInstance.id}">${fieldValue(bean: goalInstance, field: "title")}</g:link></td>
 						<td>${fieldValue(bean: goalInstance, field: "activityType")}</td>
-					
 						<td>${fieldValue(bean: goalInstance, field: "metric")}</td>
-					
 						<td>${fieldValue(bean: goalInstance, field: "targetAmount")}</td>
-					
 						<td><g:formatDate date="${goalInstance.targetDate}" /></td>
-					
+						<td>${fieldValue(bean: goalInstance, field: "currentAmount")}</td>
 					</tr>
 				</g:each>
 				</tbody>
