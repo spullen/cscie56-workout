@@ -5,5 +5,6 @@ class GoalActivity {
     Activity activity
 
     static constraints = {
+        activity unique: 'goal'
     }
 }
