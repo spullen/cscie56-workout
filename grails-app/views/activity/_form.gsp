@@ -7,8 +7,11 @@
 		<g:message code="activity.activityType.label" default="Activity Type" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select name="activityType" from="${ActivityType.values()}" keys="${ActivityType.values()*.name()}" required="" value="${activityInstance?.activityType?.name()}" />
-
+	<g:select name="activityType"
+			  from="${ActivityType.values()}"
+			  keys="${ActivityType.values()*.name()}"
+			  required=""
+			  value="${activityInstance?.activityType?.name()}" />
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: activityInstance, field: 'amount', 'error')} required">
@@ -17,7 +20,6 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<g:field name="amount" value="${fieldValue(bean: activityInstance, field: 'amount')}" required=""/>
-
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: activityInstance, field: 'metric', 'error')} required">
@@ -26,7 +28,6 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<g:select name="metric" from="${MetricType?.values()}" keys="${MetricType.values()*.name()}" required="" value="${activityInstance?.metric?.name()}" />
-
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: activityInstance, field: 'start', 'error')} ">
@@ -35,7 +36,6 @@
 		
 	</label>
 	<g:datePicker name="start" precision="minute"  value="${activityInstance?.start}" default="${new Date()}" relativeYears="[-1..0]" noSelection="['': '']" />
-
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: activityInstance, field: 'duration', 'error')} ">
@@ -51,6 +51,5 @@
 		
 	</label>
 	<g:textArea name="notes" cols="40" rows="5" maxlength="2000" value="${activityInstance?.notes}"/>
-
 </div>
 
