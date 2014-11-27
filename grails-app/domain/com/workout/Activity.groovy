@@ -10,6 +10,7 @@ class Activity {
     Date dateCreated
 
     static belongsTo = [user: User]
+    static hasMany = [goals: Goal, goalActivities: GoalActivity]
 
     static constraints = {
         user()
@@ -19,6 +20,10 @@ class Activity {
         start()
         duration min: 0.01
         notes nullable: true, blank: true, maxSize: 2000
+    }
+
+    List<Goal> getGoals() {
+        goalActivities.collect { it.goal }
     }
 }
 

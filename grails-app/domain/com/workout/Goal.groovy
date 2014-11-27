@@ -1,6 +1,7 @@
 package com.workout
 
 class Goal {
+    User user
     String title
     ActivityType activityType = ActivityType.RUNNING
     MetricType metric = MetricType.DISTANCE
@@ -11,7 +12,8 @@ class Goal {
     Date dateAccomplished
     Date dateCreated
 
-    static belongsTo = [user: User]
+    static belongsTo = Activity
+    static hasMany = [goalActivities: GoalActivity]
 
     static constraints = {
         user()
@@ -27,5 +29,9 @@ class Goal {
         }
         currentAmount min: 0.0
         dateAccomplished nullable: true
+    }
+
+    List<Activity> getActivities() {
+        goalActivities.collect { it.activity }
     }
 }
