@@ -78,4 +78,117 @@ class GoalConstraintsSpec extends Specification {
         goal.validate()
         !goal.hasErrors()
     }
+
+    void "metric"() {
+        when: 'metric is null'
+        goal.metric = null
+
+        then: 'validation should fail'
+        !goal.validate()
+        goal.errors['metric'] == 'nullable'
+
+        when: 'metric is a valid type'
+        goal.metric = MetricType.REPS
+
+        then: 'validation should pass'
+        goal.validate()
+        !goal.hasErrors()
+    }
+
+    void "targetAmount"() {
+        when: 'targetAmount is null'
+        goal.targetAmount = null
+
+        then: 'validation should fail'
+        !goal.validate()
+        goal.errors['targetAmount'] == 'nullable'
+
+        when: 'targetAmount is less than 1.0'
+        goal.targetAmount = 0.9
+
+        then: 'validation should fail'
+        !goal.validate()
+        goal.errors['targetAmount'] == 'min'
+
+        when: 'targetAmount is less than 0.01'
+        goal.targetAmount = -1.0
+
+        then: 'validation should fail'
+        !goal.validate()
+        goal.errors['targetAmount'] == 'min'
+
+        when: 'when targetAmount is valid'
+        goal.targetAmount = 1.0
+
+        then: 'validation should pass'
+        goal.validate()
+        !goal.hasErrors()
+
+        when: 'when targetAmount is valid'
+        goal.targetAmount = 5.4
+
+        then: 'validation should pass'
+        goal.validate()
+        !goal.hasErrors()
+    }
+
+    void "targetDate"() {
+        when: 'targetDate is null'
+        goal.targetDate = null
+
+        then: 'validation should fail'
+        !goal.validate()
+        goal.errors['targetDate'] == 'nullable'
+
+        when: 'targetDate is in the past'
+        goal.targetDate = (new Date()).clearTime().previous()
+
+        then: 'validation should fail'
+        !goal.validate()
+        goal.errors['targetDate'] == 'targetDate.cannotBeInThePast'
+
+        when: 'targetDate is today'
+        goal.targetDate = (new Date()).clearTime()
+
+        then: 'validation should pass'
+        goal.validate()
+        !goal.hasErrors()
+
+        when: 'targetDate is in the future'
+        goal.targetDate = (new Date()).clearTime().next()
+
+        then: 'validation should pass'
+        goal.validate()
+        !goal.hasErrors()
+    }
+
+    void "currentAmount"() {
+        when: 'targetAmount is null'
+        goal.currentAmount = null
+
+        then: 'validation should fail'
+        !goal.validate()
+        goal.errors['currentAmount'] == 'nullable'
+
+        when: 'currentAmount is less than 0.0'
+        goal.currentAmount = -0.9
+
+        then: 'validation should fail'
+        !goal.validate()
+        goal.errors['currentAmount'] == 'min'
+
+        when: 'when currentAmount is valid'
+        goal.currentAmount = 0.0
+
+        then: 'validation should pass'
+        goal.validate()
+        !goal.hasErrors()
+
+        when: 'when currentAmount is valid'
+        goal.currentAmount = 5.4
+
+        then: 'validation should pass'
+        goal.validate()
+        !goal.hasErrors()
+    }
 }

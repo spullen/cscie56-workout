@@ -4,7 +4,7 @@ class Goal {
     String title
     ActivityType activityType = ActivityType.RUNNING
     MetricType metric = MetricType.DISTANCE
-    BigDecimal targetAmount = 0.0
+    BigDecimal targetAmount = 1.0
     Date targetDate
     BigDecimal currentAmount = 0.0
     Boolean accomplished = false
@@ -18,11 +18,11 @@ class Goal {
         title blank: false, maxSize: 150
         activityType()
         metric()
-        targetAmount min: 0.0
+        targetAmount min: 1.0
         targetDate validator: { targetDate ->
             Date today = (new Date()).clearTime()
             if(targetDate && targetDate < today) {
-                return ['targetDate.mustBeInFuture']
+                return ['targetDate.cannotBeInThePast']
             }
         }
         currentAmount min: 0.0
