@@ -53,22 +53,31 @@ class ActivityController {
     }
 
     def edit(Activity activityInstance) {
+        if(!isAuthorized(activityInstance)) {
+            notAuthorized()
+            return
+        }
+
         respond activityInstance
     }
 
-    @Transactional
     def update(Activity activityInstance) {
         if (activityInstance == null) {
             notFound()
             return
         }
 
+        if(!isAuthorized(activityInstance)) {
+            notAuthorized()
+            return
+        }
+
+        activityService.update(activityInstance)
+
         if (activityInstance.hasErrors()) {
             respond activityInstance.errors, view:'edit'
             return
         }
-
-        activityInstance.save flush:true
 
         request.withFormat {
             form multipartForm {
@@ -81,13 +90,17 @@ class ActivityController {
 
     @Transactional
     def delete(Activity activityInstance) {
-
         if (activityInstance == null) {
             notFound()
             return
         }
 
-        activityInstance.delete flush:true
+        if(!isAuthorized(activityInstance)) {
+            notAuthorized()
+            return
+        }
+
+        activityService.delete(activityInstance)
 
         request.withFormat {
             form multipartForm {
@@ -106,5 +119,15 @@ class ActivityController {
             }
             '*'{ render status: NOT_FOUND }
         }
+    }
+
+    private boolean isAuthorized(Activity activity) {
+        User user = springSecurityService.loadCurrentUser()
+        return activity.user.id == user.id
+    }
+
+    private void notAuthorized() {
+        flash.warning = message(code: 'default.unauthorized.message')
+        redirect action:"index", method:"GET"
     }
 }

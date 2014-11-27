@@ -20,7 +20,17 @@ class ActivityService {
     }
 
     def update(Activity activity) {
-        activity.save()
+        activity.save(flush: true)
+
+        // TODO: goal integration
+        // This could be many-to-many so need to find all goals and update
+        // Find active goal for user, activity type, and metric
+        // Re-calculate current amount and update
+        // Decide if goal has been completed (this could be mean going from completed to incomplete if adjustments go under target)
+    }
+
+    def delete(Activity activity) {
+        activity.delete()
 
         // TODO: goal integration
         // This could be many-to-many so need to find all goals and update

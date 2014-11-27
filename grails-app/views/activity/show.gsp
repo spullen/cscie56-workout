@@ -23,15 +23,6 @@
 			</g:if>
 			<ol class="property-list activity">
 			
-				<g:if test="${activityInstance?.user}">
-				<li class="fieldcontain">
-					<span id="user-label" class="property-label"><g:message code="activity.user.label" default="User" /></span>
-					
-						<span class="property-value" aria-labelledby="user-label"><g:link controller="user" action="show" id="${activityInstance?.user?.id}">${activityInstance?.user?.encodeAsHTML()}</g:link></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${activityInstance?.activityType}">
 				<li class="fieldcontain">
 					<span id="activityType-label" class="property-label"><g:message code="activity.activityType.label" default="Activity Type" /></span>
@@ -39,6 +30,15 @@
 						<span class="property-value" aria-labelledby="activityType-label"><g:fieldValue bean="${activityInstance}" field="activityType"/></span>
 					
 				</li>
+				</g:if>
+
+				<g:if test="${activityInstance?.metric}">
+					<li class="fieldcontain">
+						<span id="metric-label" class="property-label"><g:message code="activity.metric.label" default="Metric" /></span>
+
+						<span class="property-value" aria-labelledby="metric-label"><g:fieldValue bean="${activityInstance}" field="metric"/></span>
+
+					</li>
 				</g:if>
 			
 				<g:if test="${activityInstance?.amount}">
@@ -50,29 +50,11 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${activityInstance?.metric}">
-				<li class="fieldcontain">
-					<span id="metric-label" class="property-label"><g:message code="activity.metric.label" default="Metric" /></span>
-					
-						<span class="property-value" aria-labelledby="metric-label"><g:fieldValue bean="${activityInstance}" field="metric"/></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${activityInstance?.start}">
 				<li class="fieldcontain">
 					<span id="start-label" class="property-label"><g:message code="activity.start.label" default="Start" /></span>
 					
 						<span class="property-value" aria-labelledby="start-label"><g:formatDate date="${activityInstance?.start}" /></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${activityInstance?.end}">
-				<li class="fieldcontain">
-					<span id="end-label" class="property-label"><g:message code="activity.end.label" default="End" /></span>
-					
-						<span class="property-value" aria-labelledby="end-label"><g:formatDate date="${activityInstance?.end}" /></span>
 					
 				</li>
 				</g:if>

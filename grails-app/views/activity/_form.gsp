@@ -14,6 +14,14 @@
 			  value="${activityInstance?.activityType?.name()}" />
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: activityInstance, field: 'metric', 'error')} required">
+	<label for="metric">
+		<g:message code="activity.metric.label" default="Metric" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:select name="metric" from="${MetricType?.values()}" keys="${MetricType.values()*.name()}" required="" value="${activityInstance?.metric?.name()}" />
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: activityInstance, field: 'amount', 'error')} required">
 	<label for="amount">
 		<g:message code="activity.amount.label" default="Amount" />
@@ -22,13 +30,6 @@
 	<g:field name="amount" value="${fieldValue(bean: activityInstance, field: 'amount')}" required=""/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: activityInstance, field: 'metric', 'error')} required">
-	<label for="metric">
-		<g:message code="activity.metric.label" default="Metric" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:select name="metric" from="${MetricType?.values()}" keys="${MetricType.values()*.name()}" required="" value="${activityInstance?.metric?.name()}" />
-</div>
 
 <div class="fieldcontain ${hasErrors(bean: activityInstance, field: 'start', 'error')} ">
 	<label for="start">

@@ -13,7 +13,7 @@ class ActivityControllerSpec extends Specification {
         params['amount'] = 5.2
         params['metric'] = MetricType.DISTANCE
         params['start'] = new Date('10/11/2014 10:00:00')
-        params['end'] = new Date('10/11/2014 10:35:00')
+        params['duration'] = 10
         params['notes'] = 'Great run'
     }
 
