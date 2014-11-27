@@ -88,7 +88,6 @@ class ActivityController {
         }
     }
 
-    @Transactional
     def delete(Activity activityInstance) {
         if (activityInstance == null) {
             notFound()
