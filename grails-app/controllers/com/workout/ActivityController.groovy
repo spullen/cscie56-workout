@@ -17,6 +17,8 @@ class ActivityController {
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
+        params.sort = 'dateCreated'
+        params.order = 'desc'
         User user = springSecurityService.loadCurrentUser()
         def activities = Activity.findAllByUser(user, params)
         respond activities, model:[activityInstanceCount: Activity.countByUser(user)]

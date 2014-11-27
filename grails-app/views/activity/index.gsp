@@ -23,11 +23,11 @@
 			<table>
 			<thead>
 					<tr>
-						<g:sortableColumn property="activityType" title="${message(code: 'activity.activityType.label', default: 'Activity Type')}" />
-						<g:sortableColumn property="metric" title="${message(code: 'activity.metric.label', default: 'Metric')}" />
-						<g:sortableColumn property="amount" title="${message(code: 'activity.amount.label', default: 'Amount')}" />
-						<g:sortableColumn property="start" title="${message(code: 'activity.start.label', default: 'Start')}" />
-						<g:sortableColumn property="duration" title="${message(code: 'activity.duration.label', default: 'Duration')}" />
+						<th>${message(code: 'activity.activityType.label', default: 'Activity Type')}</th>
+						<th>${message(code: 'activity.metric.label', default: 'Metric')}</th>
+						<th>${message(code: 'activity.amount.label', default: 'Amount')}</th>
+						<th>${message(code: 'activity.start.label', default: 'Start')}</th>
+						<th>${message(code: 'activity.duration.label', default: 'Duration')}</th>
 					</tr>
 				</thead>
 				<tbody>
