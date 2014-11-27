@@ -40,5 +40,26 @@ class GoalConstraintsSpec extends Specification {
         !goal.hasErrors()
     }
 
+    void "title"() {
+        when: 'title is null'
+        goal.title = null
 
+        then: 'validation should fail'
+        !goal.validate()
+        goal.errors['title'] == 'nullable'
+
+        when: 'title is blank'
+        goal.title = ''
+
+        then: 'validation should fail'
+        !goal.validate()
+        goal.errors['title'] == 'blank'
+
+        when: 'title is defined'
+        goal.title = '5K Training'
+
+        then: 'validation should pass'
+        goal.validate()
+        !goal.hasErrors()
+    }
 }
