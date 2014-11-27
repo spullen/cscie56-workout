@@ -15,19 +15,7 @@ class ActivitySpec extends Specification {
     def cleanup() {
     }
 
-    void "getDuration"() {
-        when:
-        Activity a = new Activity(
-                user: [id: 1] as User,
-                activityType: ActivityType.RUNNING,
-                amount: 5.5,
-                metric: MetricType.DISTANCE,
-                start: new Date("12/10/2014 12:30:00"),
-                end: new Date("12/10/2014 12:45:00"),
-                notes: "Felt good, could go further next time."
-        )
+    void "testSomething"() {
 
-        then:
-        a.duration == "15 minutes"
     }
 }

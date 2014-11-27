@@ -16,7 +16,7 @@ class ActivityConstraintsSpec extends Specification {
                 amount: 5.5,
                 metric: MetricType.DISTANCE,
                 start: new Date("12/10/2014 12:30:00"),
-                end: new Date("12/10/2014 12:45:00"),
+                duration: 45,
                 notes: "Felt good, could go further next time."
         )
 
@@ -112,47 +112,49 @@ class ActivityConstraintsSpec extends Specification {
         when: 'start is null'
         activity.start = null
 
-        then: 'validation should pass'
-        activity.validate()
-        !activity.hasErrors()
+        then: 'validation should fail'
+        !activity.validate()
+        activity.errors['start'] == 'nullable'
 
         when: 'start is not null'
         activity.start = new Date('11/10/2014 11:20:00')
-        activity.end = new Date('11/10/2014 11:30:00')
 
         then: 'validation should pass'
         activity.validate()
         !activity.hasErrors()
     }
 
-    void "end"() {
-        when: 'end is before the start date'
-        activity.start = new Date('11/10/2014 11:30:00')
-        activity.end = new Date('11/10/2014 11:20:00')
+    void "duration"() {
+        when: 'duration is null'
+        activity.duration = null
 
         then: 'validation should fail'
         !activity.validate()
-        activity.errors['end'] != null
+        activity.errors['duration'] == 'nullable'
 
-        when: 'start is not null and end is null'
-        activity.start = new Date('11/10/2014 11:20:00')
-        activity.end = null
+        when: 'duration is less than 0.01'
+        activity.duration = 0.001
 
         then: 'validation should fail'
         !activity.validate()
-        activity.errors['end'] == 'end.required'
+        activity.errors['duration'] == 'min'
 
-        when: 'start and end are null'
-        activity.start = null
-        activity.end = null
+        when: 'duration is less than 0.01'
+        activity.duration = -1.0
+
+        then: 'validation should fail'
+        !activity.validate()
+        activity.errors['duration'] == 'min'
+
+        when: 'duration is valid'
+        activity.duration = 0.01
 
         then: 'validation should pass'
         activity.validate()
         !activity.hasErrors()
 
-        when: 'end is after the start'
-        activity.start = new Date('11/10/2014 11:20:00')
-        activity.end = new Date('11/10/2014 11:30:00')
+        when: 'duration is valid'
+        activity.duration = 5.4
 
         then: 'validation should pass'
         activity.validate()

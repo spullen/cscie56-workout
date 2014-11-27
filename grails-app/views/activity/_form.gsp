@@ -38,13 +38,11 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: activityInstance, field: 'end', 'error')} ">
-	<label for="end">
-		<g:message code="activity.end.label" default="End" />
-		
+<div class="fieldcontain ${hasErrors(bean: activityInstance, field: 'duration', 'error')} ">
+	<label for="duration">
+		<g:message code="activity.duration.label" default="Duration (in minutes)" />
 	</label>
-	<g:datePicker name="end" precision="minute"  value="${activityInstance?.end}" default="${new Date()}" relativeYears="[-1..0]" noSelection="['': '']" />
-
+	<g:field name="duration" value="${fieldValue(bean: activityInstance, field: 'duration')}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: activityInstance, field: 'notes', 'error')} ">
