@@ -8,6 +8,10 @@ class DashboardController {
     DashboardService dashboardService
 
     def index() {
-
+        return [
+                activeGoals: dashboardService.activeGoals(),
+                accomplishedGoals: dashboardService.recentlyAccomplishedGoals(),
+                activities: dashboardService.recentlyCreatedActivities()
+        ]
     }
 }
