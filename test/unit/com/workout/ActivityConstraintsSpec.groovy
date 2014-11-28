@@ -15,7 +15,7 @@ class ActivityConstraintsSpec extends Specification {
                 activityType: ActivityType.RUNNING,
                 amount: 5.5,
                 metric: MetricType.DISTANCE,
-                start: new Date("12/10/2014 12:30:00"),
+                start: new Date().previous(),
                 duration: 45,
                 notes: "Felt good, could go further next time."
         )
@@ -115,6 +115,13 @@ class ActivityConstraintsSpec extends Specification {
         then: 'validation should fail'
         !activity.validate()
         activity.errors['start'] == 'nullable'
+
+        when: 'start is in the future'
+        activity.start = (new Date()).next()
+
+        then: 'validation should fail'
+        !activity.validate()
+        activity.errors['start'] != null
 
         when: 'start is not null'
         activity.start = new Date('11/10/2014 11:20:00')

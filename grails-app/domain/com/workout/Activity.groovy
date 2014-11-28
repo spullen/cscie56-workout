@@ -12,12 +12,19 @@ class Activity {
     static belongsTo = [user: User]
     static hasMany = [goals: Goal, goalActivities: GoalActivity]
 
+    static def startValidator = { start ->
+        Date now = new Date()
+        if(start && start.after(now)) {
+            return ['start.cannotBeInFuture']
+        }
+    }
+
     static constraints = {
         user()
         activityType()
         metric()
         amount blank: false, min: 0.01
-        start()
+        start validator: startValidator
         duration min: 0.01
         notes nullable: true, blank: true, maxSize: 2000
     }
