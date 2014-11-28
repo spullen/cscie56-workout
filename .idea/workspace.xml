@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e5853dfe-27b2-4d32-87b4-1446752fd1fe" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WorkoutTracker-grailsPlugins.iml" afterPath="$PROJECT_DIR$/WorkoutTracker-grailsPlugins.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/domain/com/workout/Goal.groovy" afterPath="$PROJECT_DIR$/grails-app/domain/com/workout/Goal.groovy" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WorkoutTracker.iml" afterPath="$PROJECT_DIR$/WorkoutTracker.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/activity/_form.gsp" afterPath="$PROJECT_DIR$/grails-app/views/activity/_form.gsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/goal/_form.gsp" afterPath="$PROJECT_DIR$/grails-app/views/goal/_form.gsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="WorkoutTracker.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,18 +36,18 @@
       <file leaf-file-name="Activity.groovy" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grails-app/domain/com/workout/Activity.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="1155">
+            <state vertical-scroll-proportion="-0.0" vertical-offset="210" max-vertical-offset="1155">
               <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DataSource.groovy" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DataSource.groovy" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grails-app/conf/DataSource.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6949807" vertical-offset="0" max-vertical-offset="777">
-              <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
+              <caret line="31" column="16" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -60,11 +63,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Goal.groovy" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Goal.groovy" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/grails-app/domain/com/workout/Goal.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="555" max-vertical-offset="855">
-              <caret line="37" column="39" selection-start-line="37" selection-start-column="39" selection-end-line="37" selection-end-column="39" />
+            <state vertical-scroll-proportion="0.37798408" vertical-offset="0" max-vertical-offset="930">
+              <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -106,16 +109,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.gsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/views/goal/index.gsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="870">
-              <caret line="24" column="24" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="GoalController.groovy" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/workout/GoalController.groovy">
           <provider selected="true" editor-type-id="text-editor">
@@ -150,8 +143,6 @@
         <option value="$PROJECT_DIR$/grails-app/views/goal/show.gsp" />
         <option value="$PROJECT_DIR$/grails-app/controllers/com/workout/GoalController.groovy" />
         <option value="$PROJECT_DIR$/grails-app/views/goal/index.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/views/goal/_form.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/views/activity/_form.gsp" />
         <option value="$PROJECT_DIR$/grails-app/controllers/com/workout/ActivityController.groovy" />
         <option value="$PROJECT_DIR$/grails-app/views/activity/index.gsp" />
         <option value="$PROJECT_DIR$/grails-app/services/com/workout/GoalActivityService.groovy" />
@@ -160,7 +151,6 @@
         <option value="$PROJECT_DIR$/grails-app/i18n/messages.properties" />
         <option value="$PROJECT_DIR$/test/unit/com/workout/ActivityConstraintsSpec.groovy" />
         <option value="$PROJECT_DIR$/grails-app/domain/com/workout/Activity.groovy" />
-        <option value="$PROJECT_DIR$/grails-app/domain/com/workout/Goal.groovy" />
         <option value="$PROJECT_DIR$/grails-app/services/com/workout/GoalService.groovy" />
         <option value="$PROJECT_DIR$/grails-app/services/com/workout/ActivityService.groovy" />
         <option value="$PROJECT_DIR$/test/unit/com/workout/GoalSpec.groovy" />
@@ -169,6 +159,9 @@
         <option value="$PROJECT_DIR$/system.properties" />
         <option value="$PROJECT_DIR$/grails-app/conf/BuildConfig.groovy" />
         <option value="$PROJECT_DIR$/grails-app/conf/DataSource.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/domain/com/workout/Goal.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/views/goal/_form.gsp" />
+        <option value="$PROJECT_DIR$/grails-app/views/activity/_form.gsp" />
       </list>
     </option>
   </component>
@@ -636,16 +629,16 @@
       <updated>1416876607141</updated>
       <workItem from="1416876611919" duration="6928000" />
       <workItem from="1416886532534" duration="25826000" />
-      <workItem from="1417194722001" duration="76000" />
+      <workItem from="1417194722001" duration="612000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32830000" />
+    <option name="totallyTimeSpent" value="33366000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="874" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -663,7 +656,7 @@
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17777778" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17777778" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -885,22 +878,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/activity/_form.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.12766" vertical-offset="0" max-vertical-offset="930">
-          <caret line="38" column="127" selection-start-line="38" selection-start-column="127" selection-end-line="38" selection-end-column="127" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/goal/_form.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.034246575" vertical-offset="20" max-vertical-offset="750">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/views/goal/show.gsp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.65068495" vertical-offset="710" max-vertical-offset="1440">
@@ -1000,6 +977,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.60240966" vertical-offset="0" max-vertical-offset="930">
           <caret line="30" column="62" selection-start-line="30" selection-start-column="62" selection-end-line="30" selection-end-column="62" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1078,16 +1056,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2785146" vertical-offset="0" max-vertical-offset="2970">
           <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="21" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/domain/com/workout/Goal.groovy">
-      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="555" max-vertical-offset="855">
-          <caret line="37" column="39" selection-start-line="37" selection-start-column="39" selection-end-line="37" selection-end-column="39" />
           <folding />
         </state>
       </provider>
@@ -1135,8 +1103,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/conf/DataSource.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6949807" vertical-offset="0" max-vertical-offset="777">
-          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
+          <caret line="31" column="16" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/activity/_form.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.57123286" vertical-offset="153" max-vertical-offset="930">
+          <caret line="38" column="128" selection-start-line="38" selection-start-column="128" selection-end-line="38" selection-end-column="128" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/goal/_form.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.84246576" vertical-offset="0" max-vertical-offset="750">
+          <caret line="41" column="108" selection-start-line="41" selection-start-column="108" selection-end-line="41" selection-end-column="108" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/domain/com/workout/Goal.groovy">
+      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.37798408" vertical-offset="0" max-vertical-offset="930">
+          <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
           <folding />
         </state>
       </provider>

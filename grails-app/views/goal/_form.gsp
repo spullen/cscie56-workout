@@ -39,6 +39,6 @@
 		<g:message code="goal.targetDate.label" default="Target Date" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:datePicker name="targetDate" precision="day" value="${goalInstance?.targetDate}" relativeYears="[0..0]"  />
+	<g:datePicker name="targetDate" precision="day" value="${goalInstance?.targetDate}" relativeYears="[0..1]"  />
 </div>
 

@@ -36,7 +36,7 @@
 		<g:message code="activity.start.label" default="Start" />
 		
 	</label>
-	<g:datePicker name="start" precision="minute"  value="${activityInstance?.start}" default="${new Date()}" relativeYears="[0..0]" noSelection="['': '']" />
+	<g:datePicker name="start" precision="minute"  value="${activityInstance?.start}" default="${new Date()}" relativeYears="[-1..0]" noSelection="['': '']" />
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: activityInstance, field: 'duration', 'error')} ">

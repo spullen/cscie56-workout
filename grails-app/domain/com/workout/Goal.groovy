@@ -15,6 +15,11 @@ class Goal {
     static belongsTo = Activity
     static hasMany = [goalActivities: GoalActivity]
 
+    static mapping = {
+        activityType index: 'activityTypeIndex'
+        metric index: 'metricTypeIndex'
+    }
+
     static constraints = {
         user()
         title blank: false, maxSize: 150
