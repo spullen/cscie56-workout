@@ -37,13 +37,22 @@ class ActivityService {
     }
 
     def update(Activity activity) {
-        activity.save(flush: true)
+        BigDecimal oldAmount = activity.getPersistentValue('amount')
 
-        // TODO: goal integration
-        // This could be many-to-many so need to find all goals and update
-        // Find active goal for user, activity type, and metric
-        // Re-calculate current amount and update
-        // Decide if goal has been completed (this could be mean going from completed to incomplete if adjustments go under target)
+        activity.goals.each {
+            it.currentAmount -= oldAmount
+            it.currentAmount += activity.amount
+
+            // TODO: move this to a method on goal
+            if(it.accomplished && it.currentAmount < it.targetAmount) {
+                it.accomplished = false
+                it.dateAccomplished = null
+            }
+
+            it.save(flush: true)
+        }
+
+        activity.save(flush: true)
     }
 
     def delete(Activity activity) {
