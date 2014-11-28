@@ -32,13 +32,15 @@ class ActivityService {
     }
 
     def update(Activity activity) {
-        BigDecimal oldAmount = activity.getPersistentValue('amount')
+        if(activity.isDirty('amount')) {
+            BigDecimal oldAmount = activity.getPersistentValue('amount')
 
-        activity.goals.each {
-            it.currentAmount -= oldAmount
-            it.currentAmount += activity.amount
-            it.determineAccomplishedState()
-            it.save(flush: true)
+            activity.goals.each {
+                it.currentAmount -= oldAmount
+                it.currentAmount += activity.amount
+                it.determineAccomplishedState()
+                it.save(flush: true)
+            }
         }
 
         activity.save(flush: true)
