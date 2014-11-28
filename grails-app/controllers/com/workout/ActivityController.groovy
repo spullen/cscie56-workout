@@ -60,6 +60,11 @@ class ActivityController {
             return
         }
 
+        if(!canUpdate(activityInstance)) {
+            cannotUpdate()
+            return
+        }
+
         respond activityInstance
     }
 
@@ -71,6 +76,11 @@ class ActivityController {
 
         if(!isAuthorized(activityInstance)) {
             notAuthorized()
+            return
+        }
+
+        if(!canUpdate(activityInstance)) {
+            cannotUpdate()
             return
         }
 
@@ -101,6 +111,11 @@ class ActivityController {
             return
         }
 
+        if(!canUpdate(activityInstance)) {
+            cannotUpdate()
+            return
+        }
+
         activityService.delete(activityInstance)
 
         request.withFormat {
@@ -120,6 +135,16 @@ class ActivityController {
             }
             '*'{ render status: NOT_FOUND }
         }
+    }
+
+    private boolean canUpdate(Activity activity) {
+        Date today = new Date();
+        ((today.time - activity.dateCreated.time) / 1000 / 60 / 60 ) < 24
+    }
+
+    private void cannotUpdate() {
+        flash.warning = message(code: 'default.cannotUpdate.message')
+        redirect action:"index", method:"GET"
     }
 
     private boolean isAuthorized(Activity activity) {
