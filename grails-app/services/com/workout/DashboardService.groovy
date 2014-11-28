@@ -8,6 +8,6 @@ class DashboardService {
 
     SpringSecurityService springSecurityService
 
-    
+
 
 }
