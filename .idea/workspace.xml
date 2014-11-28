@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e5853dfe-27b2-4d32-87b4-1446752fd1fe" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/conf/BootStrap.groovy" afterPath="$PROJECT_DIR$/grails-app/conf/BootStrap.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/conf/BuildConfig.groovy" afterPath="$PROJECT_DIR$/grails-app/conf/BuildConfig.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/conf/DataSource.groovy" afterPath="$PROJECT_DIR$/grails-app/conf/DataSource.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/domain/com/workout/User.groovy" afterPath="$PROJECT_DIR$/grails-app/domain/com/workout/User.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/system.properties" afterPath="$PROJECT_DIR$/system.properties" />
-    </list>
+    <list default="true" id="e5853dfe-27b2-4d32-87b4-1446752fd1fe" name="Default" comment="" />
     <ignored path="WorkoutTracker.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -43,47 +37,37 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DataSource.groovy" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/conf/DataSource.groovy">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="63" max-vertical-offset="930">
-              <caret line="33" column="25" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="User.groovy" pinned="false" current-in-tab="true">
+      <file leaf-file-name="User.groovy" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grails-app/domain/com/workout/User.groovy">
           <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6629834" vertical-offset="0" max-vertical-offset="900">
+            <state vertical-scroll-proportion="-9.056603" vertical-offset="0" max-vertical-offset="900">
               <caret line="32" column="20" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BootStrap.groovy" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/conf/BootStrap.groovy">
+      <file leaf-file-name="DashboardController.groovy" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/workout/DashboardController.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="585">
-              <caret line="28" column="9" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="9" />
-              <folding>
-                <element signature="e#0#23#0" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="-4.5652175" vertical-offset="0" max-vertical-offset="285">
+              <caret line="7" column="37" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BuildConfig.groovy" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/conf/BuildConfig.groovy">
+      <file leaf-file-name="DashboardService.groovy" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/grails-app/services/com/workout/DashboardService.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.48" vertical-offset="468" max-vertical-offset="1260">
-              <caret line="52" column="72" selection-start-line="52" selection-start-column="72" selection-end-line="52" selection-end-column="72" />
-              <folding />
+            <state vertical-scroll-proportion="0.19305019" vertical-offset="0" max-vertical-offset="777">
+              <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+              <folding>
+                <element signature="e#21#78#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -187,6 +171,8 @@
         <option value="$PROJECT_DIR$/grails-app/conf/DataSource.groovy" />
         <option value="$PROJECT_DIR$/grails-app/domain/com/workout/User.groovy" />
         <option value="$PROJECT_DIR$/grails-app/conf/BootStrap.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/controllers/com/workout/DashboardController.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/services/com/workout/DashboardService.groovy" />
       </list>
     </option>
   </component>
@@ -654,12 +640,12 @@
       <updated>1416876607141</updated>
       <workItem from="1416876611919" duration="6928000" />
       <workItem from="1416886532534" duration="25826000" />
-      <workItem from="1417194722001" duration="1908000" />
+      <workItem from="1417194722001" duration="2507000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34662000" />
+    <option name="totallyTimeSpent" value="35261000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="874" extended-state="6" />
@@ -724,22 +710,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/grails-app/domain/com/workout/Activity.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="1155">
-          <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/conf/DataSource.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/conf/BuildConfig.groovy">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="523" max-vertical-offset="1275">
@@ -1177,9 +1147,27 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6629834" vertical-offset="0" max-vertical-offset="900">
+        <state vertical-scroll-proportion="-9.056603" vertical-offset="0" max-vertical-offset="900">
           <caret line="32" column="20" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/workout/DashboardController.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.5652175" vertical-offset="0" max-vertical-offset="285">
+          <caret line="7" column="37" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/services/com/workout/DashboardService.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.19305019" vertical-offset="0" max-vertical-offset="777">
+          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+          <folding>
+            <element signature="e#21#78#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
