@@ -15,7 +15,7 @@ class GoalService {
     }
 
     def update(Goal goal) {
-        // TODO: check if goal is complete or not
+        goal.determineAccomplishedState()
         goal.save(flush: true)
     }
 

@@ -23,12 +23,7 @@ class ActivityService {
 
             goals.each {
                 it.currentAmount += activity.amount
-
-                if(it.currentAmount >= it.targetAmount) {
-                    it.accomplished = true
-                    it.dateAccomplished = new Date()
-                }
-
+                it.determineAccomplishedState()
                 it.save(flush: true)
 
                 goalActivityService.add(it, activity)
@@ -42,13 +37,7 @@ class ActivityService {
         activity.goals.each {
             it.currentAmount -= oldAmount
             it.currentAmount += activity.amount
-
-            // TODO: move this to a method on goal
-            if(it.accomplished && it.currentAmount < it.targetAmount) {
-                it.accomplished = false
-                it.dateAccomplished = null
-            }
-
+            it.determineAccomplishedState()
             it.save(flush: true)
         }
 
@@ -58,12 +47,7 @@ class ActivityService {
     def delete(Activity activity) {
         activity.goals.each {
             it.currentAmount -= activity.amount
-
-            if(it.accomplished && it.currentAmount < it.targetAmount) {
-                it.accomplished = false
-                it.dateAccomplished = null
-            }
-
+            it.determineAccomplishedState()
             it.save(flush: true)
 
             goalActivityService.remove(it, activity)

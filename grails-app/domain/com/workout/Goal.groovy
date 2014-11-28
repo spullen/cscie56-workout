@@ -34,4 +34,18 @@ class Goal {
     List<Activity> getActivities() {
         goalActivities.collect { it.activity }
     }
+
+    void determineAccomplishedState() {
+        if(accomplished) {
+            if(currentAmount < targetAmount) {
+                accomplished = false
+                dateAccomplished = null
+            }
+        } else {
+            if(currentAmount >= targetAmount) {
+                accomplished = true
+                dateAccomplished = new Date()
+            }
+        }
+    }
 }
