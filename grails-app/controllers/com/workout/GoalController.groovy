@@ -21,7 +21,7 @@ class GoalController {
     }
 
     def show(Goal goalInstance) {
-        respond goalInstance
+        respond goalInstance, model: [activities: goalInstance.activities]
     }
 
     def create() {

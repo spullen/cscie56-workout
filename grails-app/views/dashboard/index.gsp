@@ -108,6 +108,8 @@
         <div class="col-md-12">
             <h2>Recently Added Activities</h2>
 
+            <p><g:link controller="activity">View all activities</g:link></p>
+
             <g:if test="${activities}">
                 <table class="table table-bordered table-striped table-responsive">
                     <thead>
@@ -131,10 +133,6 @@
                     </g:each>
                     </tbody>
                 </table>
-
-                <div>
-                    <g:link controller="activity">View all activities</g:link>
-                </div>
             </g:if>
             <g:else>
                 <p>

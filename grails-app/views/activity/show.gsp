@@ -1,4 +1,3 @@
-
 <%@ page import="com.workout.Activity" %>
 <!DOCTYPE html>
 <html>
@@ -14,6 +13,18 @@
 		</div>
 	</div>
 	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<p><g:link action="index">Back to activity list</g:link></p>
+				<g:form url="[resource:activityInstance, action:'delete']" method="DELETE">
+					<fieldset class="buttons">
+						<g:link class="btn btn-info" action="edit" resource="${activityInstance}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
+						<g:actionSubmit class="btn btn-danger" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+					</fieldset>
+				</g:form>
+				<br>
+			</div>
+		</div>
 		<div class="row">
 			<div class="col-md-12">
 				<dl>
@@ -41,16 +52,6 @@
 				</div>
 			</div>
 		</g:if>
-		<div class="row">
-			<div class="col-md-12">
-				<g:form url="[resource:activityInstance, action:'delete']" method="DELETE">
-					<fieldset class="buttons">
-						<g:link class="btn btn-info" action="edit" resource="${activityInstance}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
-						<g:actionSubmit class="btn btn-danger" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
-					</fieldset>
-				</g:form>
-			</div>
-		</div>
 	</div>
 </body>
 </html>
