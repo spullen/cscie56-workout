@@ -38,7 +38,7 @@
 						<td>${fieldValue(bean: goalInstance, field: "activityType")}</td>
 						<td>${fieldValue(bean: goalInstance, field: "metric")}</td>
 						<td>${fieldValue(bean: goalInstance, field: "targetAmount")}</td>
-						<td><g:formatDate date="${goalInstance.targetDate}" /></td>
+						<td><g:formatDate date="${goalInstance.targetDate}" format="MM/dd/yyyy" /></td>
 						<td>${fieldValue(bean: goalInstance, field: "currentAmount")}</td>
 					</tr>
 				</g:each>

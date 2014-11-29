@@ -1,4 +1,3 @@
-
 <%@ page import="com.workout.Goal" %>
 <!DOCTYPE html>
 <html>
@@ -54,7 +53,7 @@
 				<g:if test="${goalInstance?.targetDate}">
 				<li class="fieldcontain">
 					<span id="targetDate-label" class="property-label"><g:message code="goal.targetDate.label" default="Target Date" /></span>
-					<span class="property-value" aria-labelledby="targetDate-label"><g:formatDate date="${goalInstance?.targetDate}" /></span>
+					<span class="property-value" aria-labelledby="targetDate-label"><g:formatDate date="${goalInstance?.targetDate}" format="MM/dd/yyyy" /></span>
 				</li>
 				</g:if>
 			
@@ -68,7 +67,7 @@
 				<g:if test="${goalInstance?.dateAccomplished}">
 				<li class="fieldcontain">
 					<span id="dateAccomplished-label" class="property-label"><g:message code="goal.dateAccomplished.label" default="Date Accomplished" /></span>
-					<span class="property-value" aria-labelledby="dateAccomplished-label"><g:formatDate date="${goalInstance?.dateAccomplished}" /></span>
+					<span class="property-value" aria-labelledby="dateAccomplished-label"><g:formatDate date="${goalInstance?.dateAccomplished}" format="MM/dd/yyyy" /></span>
 				</li>
 				</g:if>
 			
