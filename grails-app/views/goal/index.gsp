@@ -18,8 +18,9 @@
 			<div class="col-md-12">
 				<p><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></p>
 
-				<table class="table table-bordered table-striped table-responsive">
-					<thead>
+				<g:if test="${goalInstanceList}">
+					<table class="table table-bordered table-striped table-responsive">
+						<thead>
 						<tr>
 							<g:sortableColumn property="title" title="${message(code: 'goal.title.label', default: 'Title')}" />
 							<g:sortableColumn property="activityType" title="${message(code: 'goal.activityType.label', default: 'Activity Type')}" />
@@ -28,23 +29,27 @@
 							<g:sortableColumn property="targetDate" title="${message(code: 'goal.targetDate.label', default: 'Target Date')}" />
 							<g:sortableColumn property="currentAmount" title="${message(code: 'goal.currentAmount.label', default: 'Current Amount')}" />
 						</tr>
-					</thead>
-					<tbody>
-					<g:each in="${goalInstanceList}" status="i" var="goalInstance">
-						<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-							<td><g:link action="show" id="${goalInstance.id}">${fieldValue(bean: goalInstance, field: "title")}</g:link></td>
-							<td>${fieldValue(bean: goalInstance, field: "activityType")}</td>
-							<td>${fieldValue(bean: goalInstance, field: "metric")}</td>
-							<td>${fieldValue(bean: goalInstance, field: "targetAmount")}</td>
-							<td><g:formatDate date="${goalInstance.targetDate}" format="MM/dd/yyyy" /></td>
-							<td>${fieldValue(bean: goalInstance, field: "currentAmount")}</td>
-						</tr>
-					</g:each>
-					</tbody>
-				</table>
-				<div class="pagination">
-					<g:paginate total="${goalInstanceCount ?: 0}" />
-				</div>
+						</thead>
+						<tbody>
+						<g:each in="${goalInstanceList}" status="i" var="goalInstance">
+							<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
+								<td><g:link action="show" id="${goalInstance.id}">${fieldValue(bean: goalInstance, field: "title")}</g:link></td>
+								<td>${fieldValue(bean: goalInstance, field: "activityType")}</td>
+								<td>${fieldValue(bean: goalInstance, field: "metric")}</td>
+								<td>${fieldValue(bean: goalInstance, field: "targetAmount")}</td>
+								<td><g:formatDate date="${goalInstance.targetDate}" format="MM/dd/yyyy" /></td>
+								<td>${fieldValue(bean: goalInstance, field: "currentAmount")}</td>
+							</tr>
+						</g:each>
+						</tbody>
+					</table>
+					<div class="pagination">
+						<g:paginate total="${goalInstanceCount ?: 0}" />
+					</div>
+				</g:if>
+				<g:else>
+					<p>You have no goals set yet!</p>
+				</g:else>
 			</div>
 		</div>
 	</div>

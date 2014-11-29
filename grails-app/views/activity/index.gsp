@@ -17,8 +17,9 @@
 			<div class="col-md-12">
 				<p><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></p>
 
-				<table class="table table-responsive table-bordered table-striped">
-					<thead>
+				<g:if test="${activityInstanceList}">
+					<table class="table table-responsive table-bordered table-striped">
+						<thead>
 						<tr>
 							<th>${message(code: 'activity.activityType.label', default: 'Activity Type')}</th>
 							<th>${message(code: 'activity.metric.label', default: 'Metric')}</th>
@@ -26,22 +27,26 @@
 							<th>${message(code: 'activity.start.label', default: 'Start')}</th>
 							<th>${message(code: 'activity.duration.label', default: 'Duration')}</th>
 						</tr>
-					</thead>
-					<tbody>
-					<g:each in="${activityInstanceList}" status="i" var="activityInstance">
-						<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-							<td><g:link action="show" id="${activityInstance.id}">${fieldValue(bean: activityInstance, field: "activityType")}</g:link></td>
-							<td>${fieldValue(bean: activityInstance, field: "metric")}</td>
-							<td>${fieldValue(bean: activityInstance, field: "amount")}</td>
-							<td><g:formatDate date="${activityInstance.start}" /></td>
-							<td>${fieldValue(bean: activityInstance, field: "duration")}</td>
-						</tr>
-					</g:each>
-					</tbody>
-				</table>
-				<div class="pagination">
-					<g:paginate total="${activityInstanceCount ?: 0}" />
-				</div>
+						</thead>
+						<tbody>
+						<g:each in="${activityInstanceList}" status="i" var="activityInstance">
+							<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
+								<td><g:link action="show" id="${activityInstance.id}">${fieldValue(bean: activityInstance, field: "activityType")}</g:link></td>
+								<td>${fieldValue(bean: activityInstance, field: "metric")}</td>
+								<td>${fieldValue(bean: activityInstance, field: "amount")}</td>
+								<td><g:formatDate date="${activityInstance.start}" /></td>
+								<td>${fieldValue(bean: activityInstance, field: "duration")}</td>
+							</tr>
+						</g:each>
+						</tbody>
+					</table>
+					<div class="pagination">
+						<g:paginate total="${activityInstanceCount ?: 0}" />
+					</div>
+				</g:if>
+				<g:else>
+					<p>You have no workouts logged yet!</p>
+				</g:else>
 			</div>
 		</div>
 	</div>
