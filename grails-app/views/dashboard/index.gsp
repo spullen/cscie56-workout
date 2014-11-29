@@ -39,6 +39,7 @@
                             <th>${message(code: 'goal.targetAmount.label', default: 'Target Amount')}</th>
                             <th>${message(code: 'goal.targetDate.label', default: 'Target Date')}</th>
                             <th>${message(code: 'goal.currentAmount.label', default: 'Current Amount')}</th>
+                            <th>${message(code: 'goal.percentage.label', default: '% Accomplished')}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -50,6 +51,7 @@
                             <td>${fieldValue(bean: activeGoal, field: "targetAmount")}</td>
                             <td><g:formatDate date="${activeGoal.targetDate}" format="MM/dd/yyyy" /></td>
                             <td>${fieldValue(bean: activeGoal, field: "currentAmount")}</td>
+                            <td><goal:percentage goal="${activeGoal}" /></td>
                         </tr>
                     </g:each>
                     </tbody>
