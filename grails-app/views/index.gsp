@@ -12,7 +12,6 @@
 				Track your workouts, set goals, keep fit!
 			</p>
 			<p>
-
 				<sec:ifLoggedIn>
 					<g:link controller="dashboard" class="btn btn-success btn-lg">View Dashboard</g:link>
 				</sec:ifLoggedIn>
