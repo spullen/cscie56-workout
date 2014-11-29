@@ -106,9 +106,9 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <h2>Recently Added Activities</h2>
+            <h2>Recently Added Workouts</h2>
 
-            <p><g:link controller="activity">View all activities</g:link></p>
+            <p><g:link controller="activity">View all workouts</g:link></p>
 
             <g:if test="${activities}">
                 <table class="table table-bordered table-striped table-responsive">

@@ -31,7 +31,7 @@
 		<div class="collapse navbar-collapse">
 			<ul class="nav navbar-nav">
 				<sec:ifLoggedIn>
-					<li><g:link controller="activity">Activities</g:link></li>
+					<li><g:link controller="activity">Workouts</g:link></li>
 					<li><g:link controller="goal">Goals</g:link></li>
 				</sec:ifLoggedIn>
 			</ul>

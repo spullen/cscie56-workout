@@ -54,7 +54,9 @@
 		<div class="row">
 			<div class="col-md-12">
 				<g:if test="${activities}">
-					<h2>Activities</h2>
+					<h2>Workouts</h2>
+
+					<p><g:link controller="activity" action="create">Add Workout</g:link></p>
 
 					<table class="table table-bordered table-striped table-responsive">
 						<thead>
@@ -80,7 +82,7 @@
 					</table>
 				</g:if>
 				<g:else>
-					<p>You have no activities logged for this goal! Want to <g:link controller="activity" action="create">add one?</g:link></p>
+					<p>You have no workouts logged for this goal! Want to <g:link controller="activity" action="create">add one?</g:link></p>
 				</g:else>
 			</div>
 		</div>
