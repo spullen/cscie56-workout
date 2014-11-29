@@ -1,7 +1,7 @@
 Workout Tracker
 ===
 
-[Site](https://cscie56-exercise.herokuapp.com)
+[View Site](https://cscie56-exercise.herokuapp.com)
 
 ## About
 
