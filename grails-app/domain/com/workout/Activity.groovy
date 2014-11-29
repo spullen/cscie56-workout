@@ -32,6 +32,11 @@ class Activity {
     List<Goal> getGoals() {
         goalActivities.collect { it.goal }
     }
+
+    boolean canUpdate() {
+        Date today = new Date();
+        ((today.time - dateCreated.time) / 1000 / 60 / 60 ) < 24
+    }
 }
 
 public enum ActivityType {

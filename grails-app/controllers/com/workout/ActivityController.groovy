@@ -58,7 +58,7 @@ class ActivityController {
             return
         }
 
-        if(!canUpdate(activityInstance)) {
+        if(!activityInstance.canUpdate()) {
             cannotUpdate()
             return
         }
@@ -77,7 +77,7 @@ class ActivityController {
             return
         }
 
-        if(!canUpdate(activityInstance)) {
+        if(!activityInstance.canUpdate()) {
             cannotUpdate()
             return
         }
@@ -109,7 +109,7 @@ class ActivityController {
             return
         }
 
-        if(!canUpdate(activityInstance)) {
+        if(!activityInstance.canUpdate()) {
             cannotUpdate()
             return
         }
@@ -133,11 +133,6 @@ class ActivityController {
             }
             '*'{ render status: NOT_FOUND }
         }
-    }
-
-    private boolean canUpdate(Activity activity) {
-        Date today = new Date();
-        ((today.time - activity.dateCreated.time) / 1000 / 60 / 60 ) < 24
     }
 
     private void cannotUpdate() {
