@@ -28,7 +28,7 @@
 						<g:sortableColumn property="metric" title="${message(code: 'goal.metric.label', default: 'Metric')}" />
 						<g:sortableColumn property="targetAmount" title="${message(code: 'goal.targetAmount.label', default: 'Target Amount')}" />
 						<g:sortableColumn property="targetDate" title="${message(code: 'goal.targetDate.label', default: 'Target Date')}" />
-						<g:sortableColumn property="targetAmount" title="${message(code: 'goal.currentAmount.label', default: 'Current Amount')}" />
+						<g:sortableColumn property="currentAmount" title="${message(code: 'goal.currentAmount.label', default: 'Current Amount')}" />
 					</tr>
 				</thead>
 				<tbody>

@@ -21,7 +21,7 @@
 				<div class="message" role="status">${flash.message}</div>
 			</g:if>
 			<table>
-			<thead>
+				<thead>
 					<tr>
 						<th>${message(code: 'activity.activityType.label', default: 'Activity Type')}</th>
 						<th>${message(code: 'activity.metric.label', default: 'Metric')}</th>
