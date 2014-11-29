@@ -10,10 +10,10 @@ class ActivityService {
     GoalActivityService goalActivityService
 
     def create(Activity activity) {
-        User user = springSecurityService.currentUser
+        User user = springSecurityService.loadCurrentUser()
 
         activity.user = user
-        if(activity.save(flush: true)) {
+        if(activity.save()) {
             List<Goal> goals = Goal.withCriteria {
                 eq('user', user)
                 eq('activityType', activity.activityType)
@@ -24,7 +24,7 @@ class ActivityService {
             goals.each {
                 it.currentAmount += activity.amount
                 it.determineAccomplishedState()
-                it.save(flush: true)
+                it.save()
 
                 goalActivityService.add(it, activity)
             }
@@ -39,22 +39,22 @@ class ActivityService {
                 it.currentAmount -= oldAmount
                 it.currentAmount += activity.amount
                 it.determineAccomplishedState()
-                it.save(flush: true)
+                it.save()
             }
         }
 
-        activity.save(flush: true)
+        activity.save()
     }
 
     def delete(Activity activity) {
         activity.goals.each {
             it.currentAmount -= activity.amount
             it.determineAccomplishedState()
-            it.save(flush: true)
+            it.save()
 
             goalActivityService.remove(it, activity)
         }
 
-        activity.delete(flush: true)
+        activity.delete()
     }
 }

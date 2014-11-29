@@ -16,13 +16,13 @@ class GoalService {
 
     def update(Goal goal) {
         goal.determineAccomplishedState()
-        goal.save(flush: true)
+        goal.save()
     }
 
     def delete(Goal goal) {
         goal.activities.each {
             goalActivityService.remove(goal, it)
         }
-        goal.delete(flush: true)
+        goal.delete()
     }
 }

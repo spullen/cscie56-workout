@@ -21,7 +21,7 @@
                     <tr>
                         <tr>${message(code: 'goal.title.label', default: 'Title')}</tr>
                         <tr>${message(code: 'goal.activityType.label', default: 'Activity Type')}</tr>
-                        <tr>${message(code: 'goal.metric.label', default: 'Metric')}" />
+                        <tr>${message(code: 'goal.metric.label', default: 'Metric')}</tr>
                         <tr>${message(code: 'goal.targetAmount.label', default: 'Target Amount')}</tr>
                         <tr>${message(code: 'goal.targetDate.label', default: 'Target Date')}</tr>
                         <tr>${message(code: 'goal.currentAmount.label', default: 'Current Amount')}</tr>
@@ -31,11 +31,11 @@
                     <g:each in="${activeGoals}" status="i" var="activeGoal">
                         <tr>
                             <td><g:link controller="goal" action="show" id="${activeGoal.id}">${fieldValue(bean: activeGoal, field: "title")}</g:link></td>
-                            <td>${fieldValue(bean: goalInstance, field: "activityType")}</td>
-                            <td>${fieldValue(bean: goalInstance, field: "metric")}</td>
-                            <td>${fieldValue(bean: goalInstance, field: "targetAmount")}</td>
-                            <td><g:formatDate date="${goalInstance.targetDate}" /></td>
-                            <td>${fieldValue(bean: goalInstance, field: "currentAmount")}</td>
+                            <td>${fieldValue(bean: activeGoal, field: "activityType")}</td>
+                            <td>${fieldValue(bean: activeGoal, field: "metric")}</td>
+                            <td>${fieldValue(bean: activeGoal, field: "targetAmount")}</td>
+                            <td><g:formatDate date="${activeGoal.targetDate}" /></td>
+                            <td>${fieldValue(bean: activeGoal, field: "currentAmount")}</td>
                         </tr>
                     </g:each>
                 </tbody>
