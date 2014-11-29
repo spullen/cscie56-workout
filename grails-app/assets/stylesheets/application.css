@@ -14,3 +14,11 @@
 body {
     padding-top: 65px;
 }
+
+.alert {
+    margin-bottom: 10px;
+}
+
+.page-header {
+    margin-top: 5px;
+}
