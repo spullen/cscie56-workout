@@ -58,7 +58,7 @@
 				<div class="alert alert-success" role="status">${flash.message}</div>
 			</g:if>
 			<g:if test="${flash.warning}">
-				<div class="alert alert-danger" role="status">${flash.message}</div>
+				<div class="alert alert-danger" role="status">${flash.warning}</div>
 			</g:if>
 		</div>
 	</div>
