@@ -15,9 +15,10 @@ class GoalController {
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        User user = springSecurityService.loadCurrentUser()
-        def goals = Goal.findAllByUser(user, params)
-        respond goals, model:[goalInstanceCount: Goal.countByUser(user)]
+        def goals = Goal.where {
+            user == springSecurityService.loadCurrentUser()
+        }
+        respond goals.list(params), model:[goalInstanceCount: goals.count()]
     }
 
     def show(Goal goalInstance) {

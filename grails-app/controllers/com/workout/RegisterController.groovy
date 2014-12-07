@@ -41,6 +41,9 @@ class RegisterController extends grails.plugin.springsecurity.ui.RegisterControl
             return
         }
 
+        def roleUser = Role.findByAuthority('ROLE_USER')
+        UserRole.create(user, roleUser, true)
+
         flash.message = 'Account created! Please log in.'
 
         redirect controller: 'login', action: 'index'
