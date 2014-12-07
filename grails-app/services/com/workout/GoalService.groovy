@@ -25,4 +25,9 @@ class GoalService {
         }
         goal.delete()
     }
+
+    @Transactional(readOnly = true)
+    boolean isAuthorized(Goal goal) {
+        return goal.user.id == springSecurityService.loadCurrentUser().id
+    }
 }

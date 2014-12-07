@@ -52,7 +52,7 @@ class GoalController {
     }
 
     def edit(Goal goalInstance) {
-        if(!isAuthorized(goalInstance)) {
+        if(!goalService.isAuthorized(goalInstance)) {
             notAuthorized()
             return
         }
@@ -66,7 +66,7 @@ class GoalController {
             return
         }
 
-        if(!isAuthorized(goalInstance)) {
+        if(!goalService.isAuthorized(goalInstance)) {
             notAuthorized()
             return
         }
@@ -93,7 +93,7 @@ class GoalController {
             return
         }
 
-        if(!isAuthorized(goalInstance)) {
+        if(!goalService.isAuthorized(goalInstance)) {
             notAuthorized()
             return
         }
@@ -117,11 +117,6 @@ class GoalController {
             }
             '*'{ render status: NOT_FOUND }
         }
-    }
-
-    private boolean isAuthorized(Goal goal) {
-        User user = springSecurityService.loadCurrentUser()
-        return goal.user.id == user.id
     }
 
     private void notAuthorized() {
