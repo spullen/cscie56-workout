@@ -54,7 +54,7 @@ class ActivityController {
     }
 
     def edit(Activity activityInstance) {
-        if(!isAuthorized(activityInstance)) {
+        if(!activityService.isAuthorized(activityInstance)) {
             notAuthorized()
             return
         }
@@ -73,7 +73,7 @@ class ActivityController {
             return
         }
 
-        if(!isAuthorized(activityInstance)) {
+        if(!activityService.isAuthorized(activityInstance)) {
             notAuthorized()
             return
         }
@@ -105,7 +105,7 @@ class ActivityController {
             return
         }
 
-        if(!isAuthorized(activityInstance)) {
+        if(!activityService.isAuthorized(activityInstance)) {
             notAuthorized()
             return
         }
@@ -139,11 +139,6 @@ class ActivityController {
     private void cannotUpdate() {
         flash.warning = message(code: 'default.cannotUpdate.message')
         redirect action:"index", method:"GET"
-    }
-
-    private boolean isAuthorized(Activity activity) {
-        User user = springSecurityService.loadCurrentUser()
-        return activity.user.id == user.id
     }
 
     private void notAuthorized() {

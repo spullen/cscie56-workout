@@ -57,4 +57,9 @@ class ActivityService {
 
         activity.delete()
     }
+
+    @Transactional(readOnly = true)
+    boolean isAuthorized(Activity activity) {
+        return activity.user.id == springSecurityService.loadCurrentUser().id
+    }
 }
