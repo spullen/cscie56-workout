@@ -24,6 +24,11 @@ class ActivityController {
     }
 
     def show(Activity activityInstance) {
+        if(!activityService.isAuthorized(activityInstance)) {
+            notAuthorized()
+            return
+        }
+
         respond activityInstance
     }
 

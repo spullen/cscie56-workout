@@ -22,6 +22,11 @@ class GoalController {
     }
 
     def show(Goal goalInstance) {
+        if(!goalService.isAuthorized(goalInstance)) {
+            notAuthorized()
+            return
+        }
+        
         respond goalInstance, model: [activities: goalInstance.activities]
     }
 
