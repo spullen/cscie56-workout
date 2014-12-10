@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e5853dfe-27b2-4d32-87b4-1446752fd1fe" name="Default" comment="" />
+    <list default="true" id="e5853dfe-27b2-4d32-87b4-1446752fd1fe" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/services/com/workout/GoalService.groovy" afterPath="$PROJECT_DIR$/grails-app/services/com/workout/GoalService.groovy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/integration/com/workout/GoalServiceIntegrationSpec.groovy" afterPath="$PROJECT_DIR$/test/integration/com/workout/GoalServiceIntegrationSpec.groovy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/unit/com/workout/GoalServiceSpec.groovy" afterPath="$PROJECT_DIR$/test/unit/com/workout/GoalServiceSpec.groovy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="WorkoutTracker.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -30,9 +35,45 @@
       <file leaf-file-name="GoalService.groovy" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grails-app/services/com/workout/GoalService.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="570">
-              <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="585">
+              <caret line="13" column="43" selection-start-line="13" selection-start-column="43" selection-end-line="13" selection-end-column="43" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GoalServiceIntegrationSpec.groovy" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/integration/com/workout/GoalServiceIntegrationSpec.groovy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="675" max-vertical-offset="2370">
+              <caret line="76" column="8" selection-start-line="76" selection-start-column="8" selection-end-line="89" selection-end-column="37" />
+              <folding>
+                <element signature="e#81#110#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GoalServiceSpec.groovy" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/unit/com/workout/GoalServiceSpec.groovy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="825">
+              <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
+              <folding>
+                <element signature="e#21#50#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserService.groovy" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/grails-app/services/com/workout/UserService.groovy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.27027026" vertical-offset="0" max-vertical-offset="777">
+              <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+              <folding>
+                <element signature="e#21#78#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -47,11 +88,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GoalServiceIntegrationSpec.groovy" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/test/integration/com/workout/GoalServiceIntegrationSpec.groovy">
+      <file leaf-file-name="DashboardService.groovy" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/grails-app/services/com/workout/DashboardService.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.15444015" vertical-offset="0" max-vertical-offset="2070">
-              <caret line="8" column="27" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="480">
+              <caret line="6" column="6" selection-start-line="0" selection-start-column="0" selection-end-line="26" selection-end-column="1" />
               <folding>
                 <element signature="e#21#78#0" expanded="true" />
               </folding>
@@ -62,8 +103,8 @@
       <file leaf-file-name="GoalConstraintsSpec.groovy" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/unit/com/workout/GoalConstraintsSpec.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.65217394" vertical-offset="270" max-vertical-offset="2970">
-              <caret line="20" column="28" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="59" />
+            <state vertical-scroll-proportion="-1.9565217" vertical-offset="0" max-vertical-offset="2985">
+              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -134,9 +175,11 @@
         <option value="$PROJECT_DIR$/grails-app/services/com/workout/AuthorizationService.groovy" />
         <option value="$PROJECT_DIR$/grails-app/services/com/workout/ActivityService.groovy" />
         <option value="$PROJECT_DIR$/grails-app/controllers/com/workout/ActivityController.groovy" />
-        <option value="$PROJECT_DIR$/grails-app/services/com/workout/GoalService.groovy" />
         <option value="$PROJECT_DIR$/grails-app/controllers/com/workout/GoalController.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/services/com/workout/GoalService.groovy" />
         <option value="$PROJECT_DIR$/test/integration/com/workout/GoalServiceIntegrationSpec.groovy" />
+        <option value="$PROJECT_DIR$/test/unit/com/workout/GoalServiceSpec.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/services/com/workout/UserService.groovy" />
       </list>
     </option>
   </component>
@@ -571,12 +614,12 @@
       <workItem from="1417194722001" duration="17959000" />
       <workItem from="1417295969298" duration="31000" />
       <workItem from="1417296072522" duration="2742000" />
-      <workItem from="1417975714792" duration="6997000" />
+      <workItem from="1417975714792" duration="11997000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60483000" />
+    <option name="totallyTimeSpent" value="65483000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="874" extended-state="6" />
@@ -641,41 +684,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/test/unit/com/workout/ActivityControllerSpec.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26657826" vertical-offset="24" max-vertical-offset="2580">
-          <caret line="15" column="31" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
-          <folding>
-            <element signature="e#21#47#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/domain/com/workout/UserRole.groovy">
-      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.08287293" vertical-offset="0" max-vertical-offset="1560">
-          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/unit/com/workout/GoalActivitySpec.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1591512" vertical-offset="0" max-vertical-offset="754">
-          <caret line="9" column="6" selection-start-line="0" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/unit/com/workout/ActivityServiceSpec.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15444015" vertical-offset="0" max-vertical-offset="777">
-          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/unit/com/workout/GoalActivityConstraintsSpec.groovy">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.36679536" vertical-offset="0" max-vertical-offset="1170">
@@ -938,16 +946,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/services/com/workout/DashboardService.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.077220075" vertical-offset="0" max-vertical-offset="777">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding>
-            <element signature="e#21#78#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/workout/GoalController.groovy">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.168435" vertical-offset="1256" max-vertical-offset="2010">
@@ -1028,14 +1026,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/unit/com/workout/GoalConstraintsSpec.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.65217394" vertical-offset="270" max-vertical-offset="2970">
-          <caret line="20" column="28" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/services/com/workout/GoalActivityService.groovy">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="540">
@@ -1044,18 +1034,74 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/services/com/workout/DashboardService.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="480">
+          <caret line="6" column="6" selection-start-line="0" selection-start-column="0" selection-end-line="26" selection-end-column="1" />
+          <folding>
+            <element signature="e#21#78#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/unit/com/workout/DashboardControllerSpec.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1790451" vertical-offset="0" max-vertical-offset="754">
+          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+          <folding>
+            <element signature="e#21#53#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/unit/com/workout/GoalConstraintsSpec.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.9565217" vertical-offset="0" max-vertical-offset="2985">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/services/com/workout/GoalService.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="570">
-          <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="585">
+          <caret line="13" column="43" selection-start-line="13" selection-start-column="43" selection-end-line="13" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gvm/grails/2.4.4/dist/grails-plugin-testing-2.4.4-sources.jar!/grails/test/mixin/services/ServiceUnitTestMixin.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.21235521" vertical-offset="0" max-vertical-offset="777">
+          <caret line="26" column="6" selection-start-line="26" selection-start-column="6" selection-end-line="26" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/integration/com/workout/GoalServiceIntegrationSpec.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15444015" vertical-offset="0" max-vertical-offset="2070">
-          <caret line="8" column="27" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="675" max-vertical-offset="2370">
+          <caret line="76" column="8" selection-start-line="76" selection-start-column="8" selection-end-line="89" selection-end-column="37" />
+          <folding>
+            <element signature="e#81#110#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/unit/com/workout/GoalServiceSpec.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="825">
+          <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
+          <folding>
+            <element signature="e#21#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/services/com/workout/UserService.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.27027026" vertical-offset="0" max-vertical-offset="777">
+          <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
           <folding>
             <element signature="e#21#78#0" expanded="true" />
           </folding>

@@ -6,11 +6,12 @@ import grails.transaction.Transactional
 @Transactional
 class GoalService {
 
-    SpringSecurityService springSecurityService
+    //SpringSecurityService springSecurityService
+    UserService userService
     GoalActivityService goalActivityService
 
     def create(Goal goal) {
-        goal.user = springSecurityService.currentUser
+        goal.user = userService.currentUser
         goal.save()
     }
 
@@ -28,6 +29,6 @@ class GoalService {
 
     @Transactional(readOnly = true)
     boolean isAuthorized(Goal goal) {
-        return goal.user.id == springSecurityService.loadCurrentUser().id
+        return goal.user.id == userService.loadCurrentUser().id
     }
 }

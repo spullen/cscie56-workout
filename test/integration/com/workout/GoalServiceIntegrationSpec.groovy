@@ -1,12 +1,14 @@
 package com.workout
 
-import grails.plugin.springsecurity.SpringSecurityService
+//import grails.plugin.springsecurity.SpringSecurityService
 import grails.test.mixin.Mock
 import grails.test.mixin.TestFor
+import grails.test.mixin.services.ServiceUnitTestMixin
 import grails.test.spock.IntegrationSpec
 
 @TestFor(GoalService)
-@Mock(SpringSecurityService)
+@Mock(UserService)
+
 class GoalServiceIntegrationSpec extends IntegrationSpec {
 
     /*
@@ -53,11 +55,23 @@ class GoalServiceIntegrationSpec extends IntegrationSpec {
         )
         currentUser.save(flush: true)
 
-        def springSecurityServiceMock = mockFor(SpringSecurityService, true)
-        springSecurityServiceMock.demand.getCurrentUser() { -> currentUser }
-        springSecurityServiceMock.demand.loadCurrentUser() { -> currentUser }
+        def userServiceMock = mockService(UserService)
+        userServiceMock.demand.getCurrentUser() { -> currentUser }
+        userServiceMock.demand.loadCurrentUser() { -> currentUser }
 
-        service.springSecurityService = springSecurityServiceMock.createMock()
+        service.userService = userServiceMock
+
+        //goalService = new GoalService()
+
+        /*goalService.userService = [
+                getCurrentUser: { -> return currentUser },
+                loadCurrentUser: { -> return currentUser }
+        ] as UserService*/
+        //goalService.userService = userServiceMock.createMock()
+
+
+        //expect:
+        //service.userService.getCurrentUser().username == 'me'
 
 
         def goal = new Goal(
@@ -68,12 +82,18 @@ class GoalServiceIntegrationSpec extends IntegrationSpec {
                 targetDate: (new Date()).clearTime().next()
         )
 
-        when:
         service.create(goal)
 
+
+        expect:
+        goal.id != null
+        goal.userId == currentUser.id
+
+    /*
         then:
         goal.id
         goal.userId == currentUser.id
+        */
     }
 
     /*
