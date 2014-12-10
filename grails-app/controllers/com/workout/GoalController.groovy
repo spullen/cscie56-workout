@@ -26,7 +26,7 @@ class GoalController {
             notAuthorized()
             return
         }
-        
+
         respond goalInstance, model: [activities: goalInstance.activities]
     }
 
