@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e5853dfe-27b2-4d32-87b4-1446752fd1fe" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/integration/com/workout/GoalServiceIntegrationSpec.groovy" afterPath="$PROJECT_DIR$/test/integration/com/workout/GoalServiceIntegrationSpec.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WorkoutTracker.iml" afterPath="$PROJECT_DIR$/WorkoutTracker.iml" />
     </list>
     <ignored path="WorkoutTracker.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -43,8 +42,8 @@
       <file leaf-file-name="GoalServiceIntegrationSpec.groovy" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/integration/com/workout/GoalServiceIntegrationSpec.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9227799" vertical-offset="813" max-vertical-offset="2175">
-              <caret line="102" column="37" selection-start-line="102" selection-start-column="37" selection-end-line="102" selection-end-column="37" />
+            <state vertical-scroll-proportion="0.36293435" vertical-offset="1278" max-vertical-offset="2190">
+              <caret line="104" column="5" selection-start-line="104" selection-start-column="5" selection-end-line="104" selection-end-column="5" />
               <folding>
                 <element signature="e#21#78#0" expanded="true" />
               </folding>
@@ -586,12 +585,12 @@
       <workItem from="1417295969298" duration="31000" />
       <workItem from="1417296072522" duration="2742000" />
       <workItem from="1417975714792" duration="2613000" />
-      <workItem from="1418344653339" duration="2386000" />
+      <workItem from="1418344653339" duration="2469000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58485000" />
+    <option name="totallyTimeSpent" value="58568000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="874" extended-state="6" />
@@ -1058,8 +1057,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/integration/com/workout/GoalServiceIntegrationSpec.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9227799" vertical-offset="813" max-vertical-offset="2175">
-          <caret line="102" column="37" selection-start-line="102" selection-start-column="37" selection-end-line="102" selection-end-column="37" />
+        <state vertical-scroll-proportion="0.36293435" vertical-offset="1278" max-vertical-offset="2190">
+          <caret line="104" column="5" selection-start-line="104" selection-start-column="5" selection-end-line="104" selection-end-column="5" />
           <folding>
             <element signature="e#21#78#0" expanded="true" />
           </folding>

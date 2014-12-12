@@ -37,6 +37,7 @@ class GoalServiceIntegrationSpec extends IntegrationSpec {
         goalService.create(goal)
 
         then:
+        Goal.count() == 1
         goal.id != null
         goal.userId == user.id
     }
