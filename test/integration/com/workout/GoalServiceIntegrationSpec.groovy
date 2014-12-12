@@ -5,6 +5,8 @@ import grails.test.spock.IntegrationSpec
 
 class GoalServiceIntegrationSpec extends IntegrationSpec {
     SpringSecurityService springSecurityService
+    GoalActivityService goalActivityService
+
     GoalService goalService
 
     User user
@@ -105,7 +107,65 @@ class GoalServiceIntegrationSpec extends IntegrationSpec {
     }
 
     void "delete"() {
+        given:
+        Goal goal1 = new Goal(
+                user: user,
+                title: 'Test Goal',
+                activityType: ActivityType.RUNNING,
+                metric: MetricType.DISTANCE,
+                targetAmount: 50.0,
+                targetDate: (new Date()).clearTime().next()
+        )
+        goal1.save(flush: true)
 
+        Long goal1Id = goal1.id
+
+        Goal goal2 = new Goal(
+                user: user,
+                title: 'Test Goal',
+                activityType: ActivityType.RUNNING,
+                metric: MetricType.DISTANCE,
+                targetAmount: 50.0,
+                targetDate: (new Date()).clearTime().next().next()
+        )
+        goal2.save(flush: true)
+
+        Long goal2Id = goal2.id
+
+        Activity a = new Activity(
+                user: user,
+                activityType: ActivityType.RUNNING,
+                amount: 5.5,
+                metric: MetricType.DISTANCE,
+                start: new Date().previous(),
+                duration: 45,
+                notes: "Felt good, could go further next time."
+        )
+        a.save(flush: true)
+
+        goalActivityService.add(goal2, a)
+
+        when:
+        goalService.delete(goal1)
+
+        Goal.withSession { session ->
+            session.flush()
+            session.clear()
+        }
+
+        Goal result = Goal.get(goal1Id)
+
+        then:
+        result == null
+
+        when: 'delete a goal with GoalActivity entries'
+        goalService.delete(goal2)
+
+        result = Goal.get(goal2Id)
+
+        then:
+        result == null
+        GoalActivity.count() == 0
     }
 
     void "isAuthorized"() {
