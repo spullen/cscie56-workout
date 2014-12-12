@@ -23,7 +23,7 @@ class GoalServiceIntegrationSpec extends IntegrationSpec {
         springSecurityService.reauthenticate('testUser', 'password')
     }
 
-    void "create goal"() {
+    void "create"() {
         given:
         Goal goal = new Goal(
                 title: 'Test Goal',
@@ -41,8 +41,66 @@ class GoalServiceIntegrationSpec extends IntegrationSpec {
         goal.userId == user.id
     }
 
-    void "update goal"() {
+    void "update"() {
+        given:
+        Goal goal = new Goal(
+                user: user,
+                title: 'Test Goal',
+                activityType: ActivityType.RUNNING,
+                metric: MetricType.DISTANCE,
+                targetAmount: 50.0,
+                targetDate: (new Date()).clearTime().next()
+        )
+        goal.save(flush: true)
 
+        def id = goal.id
+
+        goal.currentAmount = 10
+
+        when:
+        goalService.update(goal)
+
+        Goal.withSession { session ->
+            session.flush()
+            session.clear()
+        }
+
+        goal = Goal.get(id)
+
+        then:
+        goal.currentAmount == 10
+
+        when: "currentAmount surpasses the targetAmount"
+        goal.currentAmount = 51
+        goalService.update(goal)
+
+        Goal.withSession { session ->
+            session.flush()
+            session.clear()
+        }
+
+        goal = Goal.get(id)
+
+        then:
+        goal.currentAmount == 51
+        goal.accomplished
+        goal.dateAccomplished != null
+
+        when: "currentAmount falls below the targetAmount"
+        goal.targetAmount = 52
+        goalService.update(goal)
+
+        Goal.withSession { session ->
+            session.flush()
+            session.clear()
+        }
+
+        goal = Goal.get(id)
+
+        then:
+        goal.targetAmount == 52
+        !goal.accomplished
+        goal.dateAccomplished == null
     }
 
     void "isAuthorized"() {
