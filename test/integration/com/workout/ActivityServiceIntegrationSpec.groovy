@@ -42,5 +42,35 @@ class ActivityServiceIntegrationSpec extends IntegrationSpec {
         Activity.count() == 1
         activity.id != null
         activity.userId == user.id
+
+        when: 'there is a matching goal'
+        Goal goal = new Goal(
+                user: user,
+                title: 'Test Goal',
+                activityType: ActivityType.RUNNING,
+                metric: MetricType.DISTANCE,
+                targetAmount: 50.0,
+                targetDate: (new Date()).clearTime().next()
+        )
+        goal.save(flush: true)
+
+        Long goalId = goal.id
+
+        Activity activity1 = new Activity(
+                activityType: ActivityType.RUNNING,
+                amount: 18,
+                metric: MetricType.DISTANCE,
+                start: new Date().previous(),
+                duration: 45,
+                notes: "Felt good, could go further next time."
+        )
+
+        activityService.create(activity1)
+
+        then:
+        Activity.count() == 2
+        activity1.id != null
+        goal.currentAmount == 18
+        GoalActivity.count() == 1
     }
 }
