@@ -54,8 +54,6 @@ class ActivityServiceIntegrationSpec extends IntegrationSpec {
         )
         goal.save(flush: true)
 
-        Long goalId = goal.id
-
         Activity activity1 = new Activity(
                 activityType: ActivityType.RUNNING,
                 amount: 18,
@@ -72,5 +70,31 @@ class ActivityServiceIntegrationSpec extends IntegrationSpec {
         activity1.id != null
         goal.currentAmount == 18
         GoalActivity.count() == 1
+
+        when: 'there is a matching goal and the activity amount is more than the target'
+        Goal goal1 = new Goal(
+                user: user,
+                title: 'Test Goal',
+                activityType: ActivityType.RUNNING,
+                metric: MetricType.DISTANCE,
+                targetAmount: 50.0,
+                targetDate: (new Date()).clearTime().next()
+        )
+        goal1.save(flush: true)
+
+        Activity activity2 = new Activity(
+                activityType: ActivityType.RUNNING,
+                amount: 51,
+                metric: MetricType.DISTANCE,
+                start: new Date().previous(),
+                duration: 45,
+                notes: "Felt good, could go further next time."
+        )
+
+        activityService.create(activity2)
+
+        then: 'the goal should be set as accomplished'
+        goal1.accomplished
+        goal1.dateAccomplished != null
     }
 }
