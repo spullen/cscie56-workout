@@ -104,6 +104,10 @@ class GoalServiceIntegrationSpec extends IntegrationSpec {
         goal.dateAccomplished == null
     }
 
+    void "delete"() {
+
+    }
+
     void "isAuthorized"() {
         given:
         new User(
