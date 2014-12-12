@@ -40,4 +40,43 @@ class GoalServiceIntegrationSpec extends IntegrationSpec {
         goal.id != null
         goal.userId == user.id
     }
+
+    void "update goal"() {
+
+    }
+
+    void "isAuthorized"() {
+        given:
+        new User(
+                username: 'otherUser',
+                password: 'password',
+                firstName: 'Other',
+                lastName: 'User',
+                email: 'otherUser@user-test.com',
+                preferredDistanceUnits: 'mi'
+        ).save(flush: true)
+
+        Goal goal = new Goal(
+                user: user,
+                title: 'Test Goal',
+                activityType: ActivityType.RUNNING,
+                metric: MetricType.DISTANCE,
+                targetAmount: 50.0,
+                targetDate: (new Date()).clearTime().next()
+        )
+        goal.save(flush: true)
+
+        when:
+        boolean isAuthorized = goalService.isAuthorized(goal)
+
+        then:
+        isAuthorized
+
+        when:
+        springSecurityService.reauthenticate('otherUser', 'password')
+        isAuthorized = goalService.isAuthorized(goal)
+
+        then:
+        !isAuthorized
+    }
 }
