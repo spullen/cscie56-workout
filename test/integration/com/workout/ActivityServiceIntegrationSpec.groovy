@@ -97,4 +97,39 @@ class ActivityServiceIntegrationSpec extends IntegrationSpec {
         goal1.accomplished
         goal1.dateAccomplished != null
     }
+
+    void "isAuthorized"() {
+        given:
+        new User(
+                username: 'otherUser',
+                password: 'password',
+                firstName: 'Other',
+                lastName: 'User',
+                email: 'otherUser@user-test.com',
+                preferredDistanceUnits: 'mi'
+        ).save(flush: true)
+
+        Activity activity = new Activity(
+                user: user,
+                activityType: ActivityType.RUNNING,
+                amount: 51,
+                metric: MetricType.DISTANCE,
+                start: new Date().previous(),
+                duration: 45,
+                notes: "Felt good, could go further next time."
+        )
+
+        when:
+        boolean result = activityService.isAuthorized(activity)
+
+        then:
+        result
+
+        when:
+        springSecurityService.reauthenticate('otherUser', 'password')
+        result = activityService.isAuthorized(activity)
+
+        then:
+        !result
+    }
 }
