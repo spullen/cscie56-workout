@@ -1,35 +1,52 @@
 package com.workout
 
+import grails.plugin.springsecurity.SpringSecurityService
 import grails.test.mixin.*
 import spock.lang.*
 
 @TestFor(ActivityController)
-@Mock(Activity)
+@Mock([Activity, User, ActivityService, SpringSecurityService])
 class ActivityControllerSpec extends Specification {
+
+    def user
 
     def populateValidParams(params) {
         assert params != null
         params['activityType'] = ActivityType.RUNNING
         params['amount'] = 5.2
         params['metric'] = MetricType.DISTANCE
-        params['start'] = new Date('10/11/2014 10:00:00')
+        params['start'] = new Date()
         params['duration'] = 10
         params['notes'] = 'Great run'
+        params['user'] = user
     }
 
-    /*
-    mock user
-    mock security service
-    set the current user to the mocked user
-    controller.springSecurityService = mockedService
+    def setup() {
+        user = new User(
+                username: 'testUser',
+                password: 'password',
+                firstName: 'Test',
+                lastName: 'User',
+                email: 'test@user-test.com',
+                preferredDistanceUnits: 'mi'
+        )
+        user.save(flush: true)
 
-    similar for mocking a nested dependency
-    mock user
-    mock someService
-    mock springSecurityService
-    mockSpringSecurityService.currentUser(or w/e it is) = mockUser
-    someService.springSecurityService = mockSpringSecurityService
-     */
+        def mockedSpringSecurityService = mockFor(SpringSecurityService, true)
+        mockedSpringSecurityService.demand.loadCurrentUser {
+            return user
+        }
+
+        def mockedActivityService = mockFor(ActivityService, true)
+        mockedActivityService.demand.create(1..2) { Activity a -> a.save(flush: true) }
+        mockedActivityService.demand.update(1..2) { Activity a -> a.save(flush: true) }
+        mockedActivityService.demand.delete(1..2) { Activity a -> a.delete(flush: true) }
+        mockedActivityService.demand.isAuthorized(1..2) { Activity a -> true }
+        mockedActivityService.demand.canUpdate(1..2) { Activity a -> true }
+
+        controller.springSecurityService = mockedSpringSecurityService.createMock()
+        controller.activityService = mockedActivityService.createMock()
+    }
 
     void "Test the index action returns the correct model"() {
         when:"The index action is executed"
@@ -45,7 +62,7 @@ class ActivityControllerSpec extends Specification {
             controller.create()
 
         then:"The model is correctly created"
-            model.activityInstance!= null
+            model.activityInstance != null
     }
 
     void "Test the save action correctly persists an instance"() {
@@ -53,11 +70,11 @@ class ActivityControllerSpec extends Specification {
             request.contentType = FORM_CONTENT_TYPE
             request.method = 'POST'
             def activity = new Activity()
-            activity.validate()
+            //activity.validate()
             controller.save(activity)
 
         then:"The create view is rendered again with the correct model"
-            model.activityInstance!= null
+            model.activityInstance != null
             view == 'create'
 
         when:"The save action is executed with a valid instance"
@@ -129,7 +146,8 @@ class ActivityControllerSpec extends Specification {
         when:"A valid domain instance is passed to the update action"
             response.reset()
             populateValidParams(params)
-            activity = new Activity(params).save(flush: true)
+            activity = new Activity(params)
+            activity.save(flush: true)
             controller.update(activity)
 
         then:"A redirect is issues to the show action"
@@ -150,7 +168,8 @@ class ActivityControllerSpec extends Specification {
         when:"A domain instance is created"
             response.reset()
             populateValidParams(params)
-            def activity = new Activity(params).save(flush: true)
+            def activity = new Activity(params)
+            activity.save(flush: true)
 
         then:"It exists"
             Activity.count() == 1

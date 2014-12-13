@@ -59,6 +59,11 @@ class ActivityService {
     }
 
     @Transactional(readOnly = true)
+    boolean canUpdate(Activity activity) {
+        return activity.canUpdate()
+    }
+
+    @Transactional(readOnly = true)
     boolean isAuthorized(Activity activity) {
         return activity.user.id == springSecurityService.loadCurrentUser().id
     }

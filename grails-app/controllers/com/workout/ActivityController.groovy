@@ -64,7 +64,7 @@ class ActivityController {
             return
         }
 
-        if(!activityInstance.canUpdate()) {
+        if(!activityService.canUpdate(activityInstance)) {
             cannotUpdate()
             return
         }
@@ -83,7 +83,7 @@ class ActivityController {
             return
         }
 
-        if(!activityInstance.canUpdate()) {
+        if(!activityService.canUpdate(activityInstance)) {
             cannotUpdate()
             return
         }
@@ -115,7 +115,7 @@ class ActivityController {
             return
         }
 
-        if(!activityInstance.canUpdate()) {
+        if(!activityService.canUpdate(activityInstance)) {
             cannotUpdate()
             return
         }
