@@ -92,4 +92,77 @@ class DashboardServiceIntegrationSpec extends IntegrationSpec {
         then:
         result == expected
     }
+
+    void "recentlyAccomplishedGoals"() {
+        given:
+        Goal goal1 = new Goal(
+                user: user,
+                title: 'Test Goal',
+                activityType: ActivityType.RUNNING,
+                metric: MetricType.DISTANCE,
+                targetAmount: 50.0,
+                targetDate: (new Date()).clearTime().next().next(),
+                accomplished: false,
+                dateAccomplished: null
+        )
+        goal1.save(flush: true)
+
+        Goal goal2 = new Goal(
+                user: user,
+                title: 'Test Goal',
+                activityType: ActivityType.RUNNING,
+                metric: MetricType.DISTANCE,
+                targetAmount: 50.0,
+                targetDate: (new Date()).clearTime().next(),
+                accomplished: true,
+                dateAccomplished: (new Date()).clearTime().previous()
+        )
+        goal2.save(flush: true)
+
+        Goal goal3 = new Goal(
+                user: user,
+                title: 'Test Goal',
+                activityType: ActivityType.RUNNING,
+                metric: MetricType.DISTANCE,
+                targetAmount: 50.0,
+                targetDate: (new Date()).clearTime().next(),
+                accomplished: true,
+                dateAccomplished: (new Date()).clearTime()
+        )
+        goal3.save(flush: true)
+
+        User other = new User(
+                username: 'otherTestUser',
+                password: 'password',
+                firstName: 'Test',
+                lastName: 'User',
+                email: 'otherTest@user-test.com',
+                preferredDistanceUnits: 'mi'
+        )
+        other.save(flush: true)
+
+        Goal goal4 = new Goal(
+                user: other,
+                title: 'Test Goal',
+                activityType: ActivityType.RUNNING,
+                metric: MetricType.DISTANCE,
+                targetAmount: 50.0,
+                targetDate: (new Date()).clearTime().next(),
+                accomplished: true,
+                dateAccomplished: (new Date()).clearTime()
+        )
+        goal4.save(flush: true)
+
+        List<Goal> expected = [goal3, goal2]
+
+        when:
+        List<Goal> result = dashboardService.recentlyAccomplishedGoals()
+
+        then:
+        result == expected
+    }
+
+    void "recentlyCreatedActivities"() {
+        
+    }
 }

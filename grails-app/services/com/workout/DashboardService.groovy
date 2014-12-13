@@ -17,7 +17,7 @@ class DashboardService {
         User user = springSecurityService.loadCurrentUser()
         Date start = new Date().clearTime() - 7
         Date end = new Date().clearTime() + 1
-        Goal.findAllByUserAndDateAccomplishedBetween(user, start, end, [sort: 'targetDate', order: 'desc'])
+        Goal.findAllByUserAndDateAccomplishedBetween(user, start, end, [sort: 'dateAccomplished', order: 'desc'])
     }
 
     List<Activity> recentlyCreatedActivities() {
