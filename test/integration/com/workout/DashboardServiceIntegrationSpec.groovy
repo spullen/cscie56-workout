@@ -9,6 +9,7 @@ class DashboardServiceIntegrationSpec extends IntegrationSpec {
     DashboardService dashboardService
 
     User user
+    User other
 
     void setup() {
         user = new User(
@@ -20,6 +21,16 @@ class DashboardServiceIntegrationSpec extends IntegrationSpec {
                 preferredDistanceUnits: 'mi'
         )
         user.save(flush: true)
+
+        other = new User(
+                username: 'otherTestUser',
+                password: 'password',
+                firstName: 'Test',
+                lastName: 'User',
+                email: 'otherTest@user-test.com',
+                preferredDistanceUnits: 'mi'
+        )
+        other.save(flush: true)
 
         springSecurityService.reauthenticate('testUser', 'password')
     }
@@ -61,16 +72,6 @@ class DashboardServiceIntegrationSpec extends IntegrationSpec {
                 dateAccomplished: (new Date()).clearTime()
         )
         goal3.save(flush: true)
-
-        User other = new User(
-                username: 'otherTestUser',
-                password: 'password',
-                firstName: 'Test',
-                lastName: 'User',
-                email: 'otherTest@user-test.com',
-                preferredDistanceUnits: 'mi'
-        )
-        other.save(flush: true)
 
         Goal goal4 = new Goal(
                 user: other,
@@ -131,16 +132,6 @@ class DashboardServiceIntegrationSpec extends IntegrationSpec {
         )
         goal3.save(flush: true)
 
-        User other = new User(
-                username: 'otherTestUser',
-                password: 'password',
-                firstName: 'Test',
-                lastName: 'User',
-                email: 'otherTest@user-test.com',
-                preferredDistanceUnits: 'mi'
-        )
-        other.save(flush: true)
-
         Goal goal4 = new Goal(
                 user: other,
                 title: 'Test Goal',
@@ -163,6 +154,52 @@ class DashboardServiceIntegrationSpec extends IntegrationSpec {
     }
 
     void "recentlyCreatedActivities"() {
-        
+        given:
+        List<Activity> expected = []
+
+        Activity oldestActivity = new Activity(
+                user: user,
+                activityType: ActivityType.RUNNING,
+                amount: 18,
+                metric: MetricType.DISTANCE,
+                start: new Date().previous(),
+                duration: 45,
+                notes: "Oldest Activity"
+        )
+        oldestActivity.save(flush: true)
+
+        (1..25).each {
+            Activity activity = new Activity(
+                    user: user,
+                    activityType: ActivityType.RUNNING,
+                    amount: 18,
+                    metric: MetricType.DISTANCE,
+                    start: new Date().previous(),
+                    duration: 45,
+                    notes: "Activity $it"
+            )
+            activity.save(flush: true)
+
+            expected.add(activity)
+        }
+
+        expected = expected.reverse()
+
+        Activity otherActivity = new Activity(
+                user: other,
+                activityType: ActivityType.RUNNING,
+                amount: 18,
+                metric: MetricType.DISTANCE,
+                start: new Date().previous(),
+                duration: 45,
+                notes: "Other Activity"
+        )
+        otherActivity.save(flush: true)
+
+        when:
+        List<Activity> result = dashboardService.recentlyCreatedActivities()
+
+        then:
+        result == expected
     }
 }
