@@ -172,6 +172,82 @@ class ActivityServiceIntegrationSpec extends IntegrationSpec {
         goal.dateAccomplished == null
     }
 
+    void "delete"() {
+        given:
+        Activity activity1 = new Activity(
+                activityType: ActivityType.PULL_UPS,
+                amount: 10,
+                metric: MetricType.COUNT,
+                start: new Date().previous(),
+                duration: 45,
+                notes: "Felt good, could go further next time."
+        )
+
+        activityService.create(activity1)
+
+        Long activity1Id = activity1.id
+
+        Goal goal = new Goal(
+                user: user,
+                title: 'Test Goal',
+                activityType: ActivityType.RUNNING,
+                metric: MetricType.DISTANCE,
+                targetAmount: 50.0,
+                targetDate: (new Date()).clearTime().next()
+        )
+        goal.save(flush: true)
+
+        Long goalId = goal.id
+
+        Activity activity2 = new Activity(
+                activityType: ActivityType.RUNNING,
+                amount: 55,
+                metric: MetricType.DISTANCE,
+                start: new Date().previous(),
+                duration: 45,
+                notes: "Felt good, could go further next time."
+        )
+
+        activityService.create(activity2)
+
+        Long activity2Id = activity2.id
+
+        when: 'no goals associated with activity'
+        activityService.delete(activity1)
+
+        Activity.withSession { session ->
+            session.flush()
+            session.clear()
+        }
+
+        activity1 = Activity.get(activity1Id)
+
+        then:
+        activity1 == null
+
+        when: 'there are goals associated with the activity'
+        activityService.delete(activity2)
+
+        Activity.withSession { session ->
+            session.flush()
+            session.clear()
+        }
+
+        Goal.withSession { session ->
+            session.flush()
+            session.clear()
+        }
+
+        activity2 = Activity.get(activity2Id)
+        goal = Goal.get(goalId)
+
+        then:
+        activity2 == null
+        goal.currentAmount == 0
+        !goal.accomplished
+        goal.dateAccomplished == null
+    }
+
     void "isAuthorized"() {
         given:
         new User(
