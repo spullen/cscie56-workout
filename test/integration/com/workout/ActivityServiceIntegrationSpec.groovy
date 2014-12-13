@@ -246,6 +246,7 @@ class ActivityServiceIntegrationSpec extends IntegrationSpec {
         goal.currentAmount == 0
         !goal.accomplished
         goal.dateAccomplished == null
+        GoalActivity.count() == 0
     }
 
     void "isAuthorized"() {
