@@ -5,7 +5,6 @@ import grails.test.spock.IntegrationSpec
 
 class ActivityServiceIntegrationSpec extends IntegrationSpec {
     SpringSecurityService springSecurityService
-    GoalActivityService goalActivityService
 
     ActivityService activityService
 

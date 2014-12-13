@@ -10,7 +10,7 @@ class DashboardService {
 
     List<Goal> activeGoals() {
         User user = springSecurityService.loadCurrentUser()
-        Goal.findAllByUserAndAccomplished(user, false, [sort: 'targetDate', order: 'desc'])
+        Goal.findAllByUserAndAccomplished(user, false, [sort: 'targetDate', order: 'asc'])
     }
 
     List<Goal> recentlyAccomplishedGoals() {
