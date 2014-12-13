@@ -98,6 +98,80 @@ class ActivityServiceIntegrationSpec extends IntegrationSpec {
         goal1.dateAccomplished != null
     }
 
+    void "update"() {
+        given:
+        Goal goal = new Goal(
+                user: user,
+                title: 'Test Goal',
+                activityType: ActivityType.RUNNING,
+                metric: MetricType.DISTANCE,
+                targetAmount: 50.0,
+                targetDate: (new Date()).clearTime().next()
+        )
+        goal.save(flush: true)
+
+        Long goalId = goal.id
+
+        Activity activity = new Activity(
+                activityType: ActivityType.RUNNING,
+                amount: 5.5,
+                metric: MetricType.DISTANCE,
+                start: new Date().previous(),
+                duration: 45,
+                notes: "Felt good, could go further next time."
+        )
+
+        activityService.create(activity)
+
+        Long activityId = activity.id
+
+        when: 'updating the activity that goes past the target amount of goal'
+        activity.amount = 51
+        activityService.update(activity)
+
+        Activity.withSession { session ->
+            session.flush()
+            session.clear()
+        }
+
+        Goal.withSession { session ->
+            session.flush()
+            session.clear()
+        }
+
+        activity = Activity.get(activityId)
+        goal = Goal.get(goalId)
+
+        then:
+        activity.amount == 51
+        goal.currentAmount == 51
+        goal.accomplished
+        goal.dateAccomplished != null
+
+        when: 'updating the activity that goes below the target amount of goal'
+        activity.amount = 40
+        activityService.update(activity)
+
+        Activity.withSession { session ->
+            session.flush()
+            session.clear()
+        }
+
+        Goal.withSession { session ->
+            session.flush()
+            session.clear()
+        }
+
+        activity = Activity.get(activityId)
+        goal = Goal.get(goalId)
+
+        then:
+        activity.amount == 40
+        goal.currentAmount == 40
+        !goal.accomplished
+        goal.dateAccomplished == null
+    }
+
     void "isAuthorized"() {
         given:
         new User(
