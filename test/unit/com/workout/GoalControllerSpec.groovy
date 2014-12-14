@@ -1,18 +1,49 @@
 package com.workout
 
-
-
+import grails.plugin.springsecurity.SpringSecurityService
 import grails.test.mixin.*
 import spock.lang.*
 
 @TestFor(GoalController)
-@Mock(Goal)
+@Mock([Goal, User, GoalService, SpringSecurityService])
 class GoalControllerSpec extends Specification {
+
+    def user
 
     def populateValidParams(params) {
         assert params != null
-        // TODO: Populate valid properties like...
-        //params["name"] = 'someValidName'
+        params['user'] = user
+        params['title'] = 'Some Goal Title'
+        params['activityType'] = ActivityType.RUNNING
+        params['metric'] = MetricType.DISTANCE
+        params['targetAmount'] = 100
+        params['targetDate'] = ((new Date()).clearTime() + 50)
+    }
+
+    void setup() {
+        user = new User(
+                username: 'testUser',
+                password: 'password',
+                firstName: 'Test',
+                lastName: 'User',
+                email: 'test@user-test.com',
+                preferredDistanceUnits: 'mi'
+        )
+        user.save(flush: true)
+
+        def mockedSpringSecurityService = mockFor(SpringSecurityService, true)
+        mockedSpringSecurityService.demand.loadCurrentUser {
+            return user
+        }
+
+        def mockedGoalService = mockFor(GoalService, true)
+        mockedGoalService.demand.create(1..2) { Goal g -> g.save(flush: true) }
+        mockedGoalService.demand.update(1..2) { Goal g -> g.save(flush: true) }
+        mockedGoalService.demand.delete(1..2) { Goal g -> g.delete(flush: true) }
+        mockedGoalService.demand.isAuthorized(1..2) { Goal g -> true }
+
+        controller.springSecurityService = mockedSpringSecurityService.createMock()
+        controller.goalService = mockedGoalService.createMock()
     }
 
     void "Test the index action returns the correct model"() {
@@ -69,6 +100,7 @@ class GoalControllerSpec extends Specification {
         when:"A domain instance is passed to the show action"
             populateValidParams(params)
             def goal = new Goal(params)
+            goal.goalActivities = []
             controller.show(goal)
 
         then:"A model is populated containing the domain instance"

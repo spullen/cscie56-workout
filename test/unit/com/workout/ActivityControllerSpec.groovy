@@ -70,7 +70,7 @@ class ActivityControllerSpec extends Specification {
             request.contentType = FORM_CONTENT_TYPE
             request.method = 'POST'
             def activity = new Activity()
-            //activity.validate()
+            activity.validate()
             controller.save(activity)
 
         then:"The create view is rendered again with the correct model"

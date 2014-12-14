@@ -22,12 +22,17 @@ class GoalController {
     }
 
     def show(Goal goalInstance) {
+        if (goalInstance == null) {
+            notFound()
+            return
+        }
+
         if(!goalService.isAuthorized(goalInstance)) {
             notAuthorized()
             return
         }
 
-        respond goalInstance, model: [activities: goalInstance.activities]
+        respond goalInstance, model: [activities: goalInstance.goalActivities]
     }
 
     def create() {
