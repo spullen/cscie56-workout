@@ -32,7 +32,7 @@ class GoalController {
             return
         }
 
-        respond goalInstance, model: [activities: goalInstance.goalActivities]
+        respond goalInstance, model: [activities: goalInstance.activities]
     }
 
     def create() {
